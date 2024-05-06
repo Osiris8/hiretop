@@ -5,6 +5,7 @@ import Trusted from "@/components/Trusted";
 import Feature1 from "@/components/Feature1";
 import Feature2 from "@/components/Feature2";
 import FAQSection from "@/components/Faq";
+import Cta from "@/components/Cta";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <Feature1 />
       <Feature2 />
       <FAQSection />
+      <Cta />
     </div>
   );
 }
