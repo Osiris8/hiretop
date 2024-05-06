@@ -8,11 +8,8 @@ function Hero() {
     <>
       <section>
         <div class="px-8 py-12 mx-auto md:px-12 lg:px-32 max-w-7xl">
-          <div class="grid items-center grid-cols-1 gap-4 list-none lg:grid-cols-2 lg:gap-24">
+          <div class="grid items-center grid-cols-1 gap-4 list-none lg:grid-cols-2 lg:gap-24 text-center">
             <div>
-              <span class="text-xs font-bold tracking-wide text-gray-500 uppercase">
-                tokens
-              </span>
               <p class="mt-8 text-4xl font-semibold tracking-tight text-gray-900 text-balance">
                 A sustainable approach to blockchain validation
               </p>
