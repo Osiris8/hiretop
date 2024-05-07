@@ -55,7 +55,7 @@ export default function Nav() {
             </nav>
 
             <div className="flex items-center gap-4">
-              <div className="sm:flex sm:gap-4">
+              {/*<div className="sm:flex sm:gap-4">
                 <a
                   className="font-medium text-sm active:bg-fuchsia-50 active:text-black bg-indigo-50 focus-visible:outline-2 focus-visible:outline-fuchsia-50 focus-visible:outline-offset-2 focus:outline-none hover:text-indigo-700 justify-center px-6 py-2.5 rounded-lg text-indigo-600"
                   href="#"
@@ -71,7 +71,7 @@ export default function Nav() {
                     Register
                   </a>
                 </div>
-              </div>
+  </div>*/}
 
               <div className="block md:hidden">
                 <button
