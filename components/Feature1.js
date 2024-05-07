@@ -17,28 +17,20 @@ export default function Feature1() {
               susceptible to malicious attacks.
             </p>
 
-            <dl class="grid grid-cols-2 gap-4 mt-12 list-none lg:gap-6 text-pretty">
-              <div>
-                <div>❖</div>
-                <dt class="mt-4 font-medium text-gray-900">
-                  No warranty disclaimer
-                </dt>
-                <dd class="mt-2 text-sm text-gray-500">
-                  The license comes with no warranties. The licensor provides
-                  the work and users must use it at their own risk.
-                </dd>
-              </div>
-              <div>
-                <div>❖</div>
-                <dt class="mt-4 font-medium text-gray-900">
-                  Commercial use allowed
-                </dt>
-                <dd class="mt-2 text-sm text-gray-500">
-                  You are allowed to use the licensed work for both
-                  non-commercial and commercial purposes.
-                </dd>
-              </div>
-            </dl>
+            <div class="mt-6 sm:text-center md:text-center lg:text-left">
+              <button
+                class="font-medium text-sm active:bg-fuchsia-50 active:text-black bg-indigo-50 focus-visible:outline-2 focus-visible:outline-fuchsia-50 focus-visible:outline-offset-2 focus:outline-none hover:text-indigo-700 justify-center px-6 py-2.5 rounded-lg text-indigo-600"
+                aria-label="Primary action"
+              >
+                Talents
+              </button>
+              <button
+                class="ml-4 text-sm py-2  bg-indigo-500 focus-visible:outline-2 focus-visible:outline-fuchsia-50 focus-visible:outline-offset-2 focus:outline-none font-medium group hover:bg-indigo-50 hover:text-indigo-700 justify-center px-6 rounded-lg text-white"
+                aria-label="Secondary action"
+              >
+                Entreprise
+              </button>
+            </div>
           </div>
           <div class="order-first block w-full mt-12 aspect-square lg:mt-0">
             <div class="h-full p-2 overflow-hidden border shadow-lg bg-gray-50 rounded-3xl">
