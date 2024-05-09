@@ -2,6 +2,10 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import HeroImage from "../public/images/hero.png";
+import {
+  RegisterLink,
+  LoginLink,
+} from "@kinde-oss/kinde-auth-nextjs/components";
 
 function Hero() {
   return (
@@ -23,13 +27,13 @@ function Hero() {
                   class="font-medium text-sm active:bg-fuchsia-50 active:text-black bg-indigo-50 focus-visible:outline-2 focus-visible:outline-fuchsia-50 focus-visible:outline-offset-2 focus:outline-none hover:text-indigo-700 justify-center px-6 py-2.5 rounded-lg text-indigo-600"
                   aria-label="Primary action"
                 >
-                  Talents
+                  <RegisterLink>Talents</RegisterLink>
                 </button>
                 <button
                   class="ml-4 text-sm py-2  bg-indigo-500 focus-visible:outline-2 focus-visible:outline-fuchsia-50 focus-visible:outline-offset-2 focus:outline-none font-medium group hover:bg-indigo-50 hover:text-indigo-700 justify-center px-6 rounded-lg text-white"
                   aria-label="Secondary action"
                 >
-                  Entreprise
+                  <RegisterLink>Entreprise</RegisterLink>
                 </button>
               </div>
             </div>
