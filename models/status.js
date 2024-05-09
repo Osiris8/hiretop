@@ -1,6 +1,9 @@
 import { Schema, model, models } from "mongoose";
 
 const StatusSchema = new Schema({
+  userId: {
+    type: String, // Type de l'ID de l'utilisateur (assumant qu'il s'agit d'un ObjectID)
+  },
   typeOfProfile: {
     type: String, // Type de l'ID de l'utilisateur (assumant qu'il s'agit d'un ObjectID)
 
