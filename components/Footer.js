@@ -4,7 +4,7 @@ import React from "react";
 export default function Footer() {
   return (
     <footer>
-      <div class="px-8 py-12 mx-auto md:px-12 lg:px-32 max-w-7xl">
+      <div class="px-8 py-12 mx-auto md:px-12 lg:px-32 max-w-7xl bg-white">
         <nav class="flex flex-wrap justify-center gap-4 text-sm font-medium text-gray-500">
           <a href="#_" class="hover:text-blue-600">
             Next.js

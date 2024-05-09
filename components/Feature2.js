@@ -4,38 +4,39 @@ import feature1 from "../public/images/feature/feature1.png";
 export default function Feature2() {
   return (
     <section>
-      <div class="px-8 py-24 mx-auto md:px-12 lg:px-32 max-w-7xl">
-        <div class="grid items-center grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-24">
-          <div class="md:order-first">
-            <h1 class="text-4xl font-semibold tracking-tighter text-gray-900 text-balance">
-              Building one pagers together,
-              <span class="text-gray-600">wherever and anywhere</span>
-            </h1>
+      <div class="px-8 py-12 mx-auto md:px-12 lg:px-32 max-w-7xl">
+        <div class="grid items-center grid-cols-1 gap-4 list-none lg:grid-cols-2 lg:gap-24">
+          <div>
+            <span class="text-xs font-bold tracking-wide text-gray-500 uppercase">
+              data
+            </span>
+            <p class="mt-8 text-4xl font-semibold tracking-tight text-gray-900 text-balance">
+              Empowering users with data control daily
+            </p>
             <p class="mt-4 text-base font-medium text-gray-500">
               Control and added security. With decentralization, users have more
               control over their data and transactions, and the platform is less
               susceptible to malicious attacks.
             </p>
-
-            <div class="mt-6 sm:text-center md:text-center lg:text-left">
+            <div class="flex flex-col items-center gap-2 mx-auto mt-8 md:flex-row">
               <button
-                class="font-medium text-sm active:bg-fuchsia-50 active:text-black bg-indigo-50 focus-visible:outline-2 focus-visible:outline-fuchsia-50 focus-visible:outline-offset-2 focus:outline-none hover:text-indigo-700 justify-center px-6 py-2.5 rounded-lg text-indigo-600"
+                class="inline-flex items-center justify-center w-full h-12 gap-3 px-5 py-3 font-medium text-white duration-200 bg-gray-900 md:w-auto rounded-xl hover:bg-gray-700 focus:ring-2 focus:ring-offset-2 focus:ring-black"
                 aria-label="Primary action"
               >
-                Talents
+                Primary button
               </button>
               <button
-                class="ml-4 text-sm py-2  bg-indigo-500 focus-visible:outline-2 focus-visible:outline-fuchsia-50 focus-visible:outline-offset-2 focus:outline-none font-medium group hover:bg-indigo-50 hover:text-indigo-700 justify-center px-6 rounded-lg text-white"
+                class="inline-flex items-center justify-center w-full h-12 gap-3 px-5 py-3 font-medium duration-200 bg-gray-100 md:w-auto rounded-xl hover:bg-gray-200 focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                 aria-label="Secondary action"
               >
-                Entreprise
+                Secondary button
               </button>
             </div>
           </div>
-          <div class="order-first block w-full mt-12 aspect-square lg:mt-0">
-            <div class="h-full p-2 overflow-hidden border shadow-lg bg-gray-50 rounded-3xl">
+          <div class="p-2 border bg-gray-50 rounded-3xl lg:order-first">
+            <div class="h-full overflow-hidden bg-white border shadow-lg rounded-3xl">
               <Image
-                alt="#_"
+                alt="Lexingtøn thumbnail"
                 class="relative w-full rounded-2xl drop-shadow-2xl"
                 src={feature1}
               />

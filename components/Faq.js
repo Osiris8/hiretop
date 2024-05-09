@@ -9,7 +9,7 @@ export default function FAQSection() {
   };
 
   return (
-    <section className="px-8 py-24 mx-auto md:px-12 lg:px-32 max-w-7xl">
+    <section className="px-8 py-24 mx-auto md:px-12 lg:px-32 max-w-7xl bg-white">
       <div className="text-center">
         <div>
           <p className="text-4xl font-semibold tracking-tighter text-gray-900">
