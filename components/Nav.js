@@ -12,7 +12,7 @@ export default function Nav() {
       <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <div className="flex-1 md:flex md:items-center md:gap-12">
-            <a className="block text-indigo-600" href="#">
+            <a className="block text-slate-900" href="#">
               <span className="text-xl font-bold tracking-tight">HireTop</span>
             </a>
           </div>
@@ -60,17 +60,20 @@ export default function Nav() {
 
             <div className="flex items-center gap-4">
               <div className="sm:flex sm:gap-4">
-                <button className="font-medium text-sm active:bg-fuchsia-50 active:text-black bg-indigo-50 focus-visible:outline-2 focus-visible:outline-fuchsia-50 focus-visible:outline-offset-2 focus:outline-none hover:text-indigo-700 justify-center px-6 py-2.5 rounded-lg text-indigo-600">
-                  <LoginLink>Sign in</LoginLink>
-                </button>
+                <a
+                  className="rounded-md bg-slate-600 px-5 py-2.5 text-sm font-medium text-white shadow"
+                  href="#"
+                >
+                  Login
+                </a>
 
                 <div className="hidden sm:flex">
-                  <button
-                    className="text-sm py-2  bg-indigo-500 focus-visible:outline-2 focus-visible:outline-fuchsia-50 focus-visible:outline-offset-2 focus:outline-none font-medium group hover:bg-indigo-50 hover:text-indigo-700 justify-center px-6 rounded-lg text-white"
-                    aria-label="Secondary action"
+                  <a
+                    className="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-slate-600"
+                    href="#"
                   >
-                    <RegisterLink>Sign up</RegisterLink>
-                  </button>
+                    Register
+                  </a>
                 </div>
               </div>
 
