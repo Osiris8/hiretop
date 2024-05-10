@@ -9,11 +9,6 @@ const StatusSchema = new Schema({
 
     required: true,
   },
-  status: {
-    type: Boolean,
-    required: true,
-    default: false,
-  },
   createdAt: {
     type: Date,
     default: Date.now, // Valeur par défaut pour la date de création
