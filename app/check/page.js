@@ -13,7 +13,9 @@ export default async function Protected() {
   }
 
   await connectToDB();
-  const user = await Status.findOne({ userId: userId });
+  const user = await Status.findOne({ userId: userId }).select(
+    "userId typeOfProfile status"
+  );
   if (!(await user)) {
     redirect("/completeProfile");
   } else if (!((await user.typeOfProfile) === "company")) {
