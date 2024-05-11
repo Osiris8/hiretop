@@ -41,7 +41,7 @@ export default function Nav() {
                 <li>
                   <a
                     className="py-2 text-sm font-medium text-black hover:text-black/50"
-                    href="#"
+                    href="#companies"
                   >
                     Entreprise
                   </a>
@@ -50,7 +50,7 @@ export default function Nav() {
                 <li>
                   <a
                     className="py-2 text-sm font-medium text-black hover:text-black/50"
-                    href="#"
+                    href="#talents"
                   >
                     Talents
                   </a>

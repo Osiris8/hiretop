@@ -1,9 +1,10 @@
 "use client";
 import Image from "next/image";
 import feature1 from "../public/images/feature/feature1.png";
+import talent from "../public/images/feature/talent.jpg";
 export default function Feature1() {
   return (
-    <section className="bg-white">
+    <section className="bg-white" id="talents">
       <div class="px-8 py-12 mx-auto md:px-12 lg:px-32 max-w-7xl">
         <div class="grid items-center grid-cols-1 gap-4 list-none lg:grid-cols-2 lg:gap-24">
           <div>
@@ -35,7 +36,7 @@ export default function Feature1() {
               <Image
                 alt="Lexingtøn thumbnail"
                 class="relative w-full rounded-2xl drop-shadow-2xl"
-                src={feature1}
+                src={talent}
               />
             </div>
           </div>
