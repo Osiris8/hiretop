@@ -60,12 +60,12 @@ export default function CompanyProfil() {
           <div class="max-w-md mx-auto md:max-w-sm md:w-96">
             <div class="flex flex-col text-center">
               <h1 class="text-3xl font-semibold tracking-tighter text-gray-900">
-                Collaborating on single-page projects,
-                <span class="text-gray-600">from any location</span>
+                Compléter votre profil
+                <span class="text-gray-600">en tant que compagnie</span>
               </h1>
-              <p class="mt-4 text-base font-medium text-gray-500">
-                A rapid approach to collaborate in staging and provisional
-                settings.
+              <p class="mt-4 mb-4 text-base font-medium text-gray-500">
+                Rejoignez-nous dès aujourd'hui et découvrez comment notre
+                plateforme peut transformer votre processus de recrutement.
               </p>
             </div>
 
