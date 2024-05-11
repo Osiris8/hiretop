@@ -29,23 +29,23 @@ export default function SettingTalent() {
           <Link href="#" className="font-semibold text-primary">
             General
           </Link>
-          <Link href="#">Security</Link>
-          <Link href="#">Integrations</Link>
-          <Link href="#">Support</Link>
-          <Link href="#">Organizations</Link>
-          <Link href="#">Advanced</Link>
+          <Link href="#">Profil</Link>
+          <Link href="#">Avatar</Link>
+          <Link href="#">Expériences</Link>
+          <Link href="#">Compétences</Link>
+          <Link href="#">Réseaux sociaux</Link>
         </nav>
         <div className="grid gap-6">
           <Card x-chunk="dashboard-04-chunk-1">
             <CardHeader>
-              <CardTitle>Store Name</CardTitle>
-              <CardDescription>
-                Used to identify your store in the marketplace.
-              </CardDescription>
+              <CardTitle>Profil Personnel</CardTitle>
+              <CardDescription>Modifier vos informations</CardDescription>
             </CardHeader>
             <CardContent>
               <form>
-                <Input placeholder="Store Name" />
+                <Input placeholder="Store Name" className="mb-8" />
+                <Input placeholder="Store Name" className="mb-8" />
+                <Input placeholder="Store Name" className="mb-8" />
               </form>
             </CardContent>
             <CardFooter className="border-t px-6 py-4">

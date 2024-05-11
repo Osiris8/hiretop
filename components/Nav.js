@@ -60,12 +60,12 @@ export default function Nav() {
 
             <div className="flex items-center gap-4">
               <div className="sm:flex sm:gap-4">
-                <button className="rounded-md bg-slate-600 px-5 py-2.5 text-sm font-medium text-white shadow">
+                <button className="rounded-md bg-slate-900 px-5 py-2.5 text-sm font-medium text-white shadow">
                   <LoginLink>Login</LoginLink>
                 </button>
 
                 <div className="hidden sm:flex">
-                  <button className="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-slate-600">
+                  <button className="rounded-md bg-slate-100 px-5 py-2.5 text-sm font-medium text-slate-900">
                     <RegisterLink>Register</RegisterLink>
                   </button>
                 </div>

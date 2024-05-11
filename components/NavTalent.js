@@ -93,20 +93,9 @@ export default function NavTalent() {
               href="#"
               className="text-muted-foreground hover:text-foreground"
             >
-              Orders
+              Jobs
             </Link>
-            <Link
-              href="#"
-              className="text-muted-foreground hover:text-foreground"
-            >
-              Products
-            </Link>
-            <Link
-              href="#"
-              className="text-muted-foreground hover:text-foreground"
-            >
-              Customers
-            </Link>
+
             <Link href="#" className="hover:text-foreground">
               Settings
             </Link>
