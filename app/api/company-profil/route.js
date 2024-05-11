@@ -1,19 +1,20 @@
-import Company from "@models/company";
-import { connectToDB } from "@utils/database";
+import Company from "@/models/company";
+import { connectToDB } from "@/utils/database";
 
 export const POST = async (request) => {
-  const { companyName, sector, size, address, telephone, userId } =
+  const { userId, company, domain, size, position, telephone, country } =
     await request.json();
 
   try {
     await connectToDB();
     const companyProfil = new Company({
-      companyName,
-      sector,
-      size,
-      address,
-      telephone,
       userId: userId,
+      company: company,
+      domain: domain,
+      size: size,
+      position: position,
+      telephone: telephone,
+      country: country,
     });
 
     await companyProfil.save();

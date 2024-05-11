@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 
 import TalentProfil from "./TalentProfil";
+import CompanyProfil from "./CompanyProfil";
 function Tabs() {
   const [activeTab, setActiveTab] = useState("tab1");
 
@@ -50,11 +51,7 @@ function Tabs() {
               <div className={`${activeTab === "tab2" ? "block" : "hidden"}`}>
                 {/* Tab 2 content */}
                 <div className="text-gray-700">
-                  <p className="font-mono text-sm">02</p>
-                  <p className="text-base font-medium tracking-tight">
-                    Tab content
-                  </p>
-                  <div className="h-32 border border-gray-200 border-dashed rounded-lg"></div>
+                  <CompanyProfil />
                 </div>
               </div>
             </div>

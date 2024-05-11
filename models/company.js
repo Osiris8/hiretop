@@ -2,14 +2,16 @@ import { Schema, model, models } from "mongoose";
 
 const CompanySchema = new Schema({
   userId: {
-    type: Schema.Types.ObjectId,
-    ref: "User",
-  },
-  companyName: {
     type: String,
+
     required: true,
   },
-  sector: {
+  company: {
+    type: String,
+
+    required: true,
+  },
+  domain: {
     type: String,
     required: true,
   },
@@ -17,7 +19,7 @@ const CompanySchema = new Schema({
     type: String,
     required: true,
   },
-  address: {
+  position: {
     type: String,
     required: true,
   },
@@ -31,7 +33,7 @@ const CompanySchema = new Schema({
   },
   createdAt: {
     type: Date,
-    default: Date.now,
+    default: Date.now, // Valeur par défaut pour la date de création
   },
 });
 
