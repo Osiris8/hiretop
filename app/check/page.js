@@ -6,21 +6,20 @@ import { connectToDB } from "@/utils/database";
 import Status from "@/models/status";
 
 export default async function Protected() {
-  const { isAuthenticated, userId } = getKindeServerSession();
+  const { isAuthenticated, getUser } = getKindeServerSession();
+  console.log(getUser);
 
   if (!(await isAuthenticated())) {
     redirect("/api/auth/login");
   }
 
   await connectToDB();
-  const user = await Status.findOne({ userId: userId }).select(
-    "userId typeOfProfile status"
-  );
-  if (!(await user)) {
-    redirect("/completeProfile");
-  } else if (!((await user.typeOfProfile) === "company")) {
+  const userId = await Status.findOne({ userId: getUser().id });
+  if (!(await userId)) {
+    redirect("/profile-choice");
+  } else if (!((await userId.typeOfProfile) === "company")) {
     redirect("/company");
-  } else if (!((await user.typeOfProfile) === "talent")) {
+  } else if (!((await userId.typeOfProfile) === "talent")) {
     redirect("/job");
   }
   return (
