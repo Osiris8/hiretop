@@ -14,39 +14,40 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Checkbox } from "@/components/ui/checkbox";
+
 import { Label } from "@/components/ui/label";
-export default function SettingTalent() {
+export default function SocialTalent() {
   const { user } = useKindeBrowserClient();
-  const [firstname, setFirstname] = useState("");
-  const [lastname, setLastname] = useState("");
-  const [telephone, setTelephone] = useState("");
-  const [country, setCountry] = useState("");
+  const [facebook, setFacebook] = useState("");
+  const [github, setGithub] = useState("");
+  const [twitter, setTwitter] = useState("");
+  const [linkedin, setLinkedin] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+  const [loadingButton, setLoadingButton] = useState(false);
   const userId = user?.id;
-  const settingTalent = async (e) => {
+  const socialTalent = async (e) => {
     e.preventDefault();
-    setIsLoading(true);
+    setLoadingButton(true);
     setIsSubmitting(true);
     try {
-      const response = await fetch(`/api/talent-profil/${userId}`, {
+      const response = await fetch(`/api/talent-social-link/${userId}`, {
         method: "PATCH",
         body: JSON.stringify({
-          firstname: firstname,
-          lastname: lastname,
-          telephone: telephone,
-          country: country,
+          facebook: facebook,
+          github: github,
+          twitter: twitter,
+          linkedin: linkedin,
         }),
       });
       if (response.ok) {
-        setIsLoading(false);
+        setLoadingButton(false);
         console.log(response);
       }
     } catch (error) {
       console.error(error);
     }
   };
+
   return (
     <main className="flex min-h-[calc(100vh_-_theme(spacing.16))] flex-1 flex-col gap-4 bg-muted/40 p-4 md:gap-8 md:p-10">
       <div className="mx-auto grid w-full max-w-6xl gap-2">
@@ -69,50 +70,48 @@ export default function SettingTalent() {
         <div className="grid gap-6">
           <Card x-chunk="dashboard-04-chunk-1">
             <CardHeader>
-              <CardTitle>Profil Personnel</CardTitle>
+              <CardTitle>Réseaux sociaux</CardTitle>
               <CardDescription>Modifier vos informations</CardDescription>
             </CardHeader>
             <CardContent>
-              <form onSubmit={settingTalent}>
-                <Label htmlFor="firstname">Votre Prénom</Label>
+              <form onSubmit={socialTalent}>
+                <Label htmlFor="facebook">Facebook</Label>
                 <Input
-                  required={true}
-                  value={firstname}
-                  onChange={(e) => setFirstname(e.target.value)}
-                  placeholder="Votre Prénom"
+                  value={facebook ? facebook : ""}
+                  onChange={(e) => setFacebook(e.target.value)}
+                  placeholder="Profil Facebook"
                   className="mb-8 mt-2"
-                  id="firstname"
+                  id="facebook"
                 />
-                <Label htmlFor="lastname">Votre Nom</Label>
+                <Label htmlFor="github">Github</Label>
                 <Input
-                  required={true}
-                  value={lastname}
-                  onChange={(e) => setLastname(e.target.value)}
-                  placeholder="Votre Nom"
+                  value={github ? github : ""}
+                  onChange={(e) => setGithub(e.target.value)}
+                  placeholder="Profil Github"
                   className="mb-8 mt-2"
-                  id="lastname"
+                  id="github"
                 />
-                <Label htmlFor="telephone">Votre Numéro</Label>
+                <Label htmlFor="twitter">Twitter</Label>
                 <Input
-                  required={true}
-                  value={telephone}
-                  onChange={(e) => setTelephone(e.target.value)}
-                  placeholder="Votre Numéro"
+                  value={twitter ? twitter : ""}
+                  onChange={(e) => setTwitter(e.target.value)}
+                  placeholder="Profil Twitter"
                   className="mb-8 mt-2"
-                  id="telephone"
+                  id="twitter"
                 />
-                <Label htmlFor="country">Votre Pays</Label>
+                <Label htmlFor="linkedin">Linkedin</Label>
                 <Input
-                  required={true}
-                  value={country}
-                  onChange={(e) => setCountry(e.target.value)}
+                  value={linkedin ? linkedin : ""}
+                  onChange={(e) => setLinkedin(e.target.value)}
                   placeholder="Votre Pays"
                   className="mb-8 mt-2"
-                  id="country"
+                  id="linkedin"
                 />
                 <CardFooter className="border-t px-6 py-4">
-                  {!isLoading && <Button type="submit">Save</Button>}
-                  {isLoading && <Button disabled={isLoading}>Loading</Button>}
+                  {!loadingButton && <Button type="submit">Save</Button>}
+                  {loadingButton && (
+                    <Button disabled={loadingButton}>Loading</Button>
+                  )}
                 </CardFooter>
               </form>
             </CardContent>
