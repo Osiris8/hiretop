@@ -1,48 +1,16 @@
-import Talent from "@/models/talent";
+import TalentNextProfil from "@/models/talentNextProfil";
 import { connectToDB } from "@/utils/database";
-
-export const GET = async (request, { params }) => {
-  try {
-    await connectToDB();
-
-    const talentProfil = await Talent.find({ userId: params.id });
-
-    if (!talentProfil) {
-      return new Response(
-        JSON.stringify({ error: "Talent profil not found" }),
-        {
-          status: 404,
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
-    }
-
-    return new Response(JSON.stringify(talentProfil), {
-      status: 200,
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-  } catch (error) {
-    return new Response(JSON.stringify({ error: "Failed to fetch data" }), {
-      status: 500,
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-  }
-};
 
 export const PATCH = async (request, { params }) => {
   try {
     await connectToDB();
-    //const { userId } = params;
-    const { firstname, lastname, telephone, country } = await request.json();
-    const talentProfil = await Talent.findOne({ userId: params.id });
+    const { level, remote, freelance, onsite, available, bio } =
+      await request.json();
+    const talentNextProfil = await TalentNextProfil.findOne({
+      userId: params.id,
+    });
 
-    if (!talentProfil) {
+    if (!talentNextProfil) {
       return new Response(
         JSON.stringify({ error: "Talent profil not found" }),
         {
@@ -54,14 +22,16 @@ export const PATCH = async (request, { params }) => {
       );
     }
 
-    talentProfil.firstname = firstname;
-    talentProfil.lastname = lastname;
-    talentProfil.telephone = telephone;
-    talentProfil.country = country;
+    talentNextProfil.level = level;
+    talentNextProfil.remote = remote;
+    talentNextProfil.freelance = freelance;
+    talentNextProfil.onsite = onsite;
+    talentNextProfil.available = available;
+    talentNextProfil.bio = bio;
 
-    await talentProfil.save();
+    await talentNextProfil.save();
 
-    return new Response(JSON.stringify(talentProfil), {
+    return new Response(JSON.stringify(talentNextProfil), {
       status: 200,
       headers: {
         "Content-Type": "application/json",

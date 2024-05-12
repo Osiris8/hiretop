@@ -27,11 +27,11 @@ export default function TalentNextProfil() {
   const { user } = useKindeBrowserClient();
 
   const [level, setLevel] = useState("");
-  const [remote, setRemote] = useState(false);
+  const [remote, setRemote] = useState("");
 
-  const [freelance, setFreelance] = useState(false);
-  const [onsite, setOnsite] = useState(false);
-  const [available, setAvailable] = useState(false);
+  const [freelance, setFreelance] = useState("");
+  const [onsite, setOnsite] = useState("");
+  const [available, setAvailable] = useState("");
   const [bio, setBio] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -41,7 +41,7 @@ export default function TalentNextProfil() {
     setIsLoading(true);
     setIsSubmitting(true);
     try {
-      const response = await fetch(`/api/talent-profil/${userId}`, {
+      const response = await fetch(`/api/talent-next-profil/${userId}`, {
         method: "PATCH",
         body: JSON.stringify({
           level: level,
