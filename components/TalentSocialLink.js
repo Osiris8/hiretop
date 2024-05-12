@@ -16,7 +16,7 @@ import {
 import { Input } from "@/components/ui/input";
 
 import { Label } from "@/components/ui/label";
-export default function SocialTalent() {
+export default function TalentSocialLink() {
   const { user } = useKindeBrowserClient();
   const [facebook, setFacebook] = useState("");
   const [github, setGithub] = useState("");
@@ -25,7 +25,7 @@ export default function SocialTalent() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [loadingButton, setLoadingButton] = useState(false);
   const userId = user?.id;
-  const socialTalent = async (e) => {
+  const talentSocialLink = async (e) => {
     e.preventDefault();
     setLoadingButton(true);
     setIsSubmitting(true);
@@ -74,7 +74,7 @@ export default function SocialTalent() {
               <CardDescription>Modifier vos informations</CardDescription>
             </CardHeader>
             <CardContent>
-              <form onSubmit={socialTalent}>
+              <form onSubmit={talentSocialLink}>
                 <Label htmlFor="facebook">Facebook</Label>
                 <Input
                   value={facebook ? facebook : ""}

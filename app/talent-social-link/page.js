@@ -4,7 +4,7 @@ import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 import { LoginLink } from "@kinde-oss/kinde-auth-nextjs/components";
 
 import NavTalent from "@/components/NavTalent";
-import SocialTalent from "@/components/SocialLinkTalent";
+import TalentSocialLink from "@/components/TalentSocialLink";
 export default function DashboardTalent() {
   const { isAuthenticated, isLoading } = useKindeBrowserClient();
   if (isLoading) return <div>Loading...</div>;
@@ -12,7 +12,7 @@ export default function DashboardTalent() {
   return isAuthenticated ? (
     <div className="flex min-h-screen w-full flex-col">
       <NavTalent />
-      <SocialTalent />
+      <TalentSocialLink />
     </div>
   ) : (
     <div>

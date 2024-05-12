@@ -13,29 +13,30 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Label } from "@/components/ui/label";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { Switch } from "@/components/ui/switch";
-import { Textarea } from "@/components/ui/textarea";
 
-export default function TalentInfo() {
+import { Textarea } from "@/components/ui/textarea";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+
+export default function TalentNextProfil() {
   const { user } = useKindeBrowserClient();
 
-  const [level, setLevel] = useState({ level: "beginner" });
+  const [level, setLevel] = useState("");
   const [remote, setRemote] = useState(false);
-  const toggleRemote = () => {
-    setRemote(!remote); // Bascule la valeur de remote
-  };
+
   const [freelance, setFreelance] = useState(false);
   const [onsite, setOnsite] = useState(false);
   const [available, setAvailable] = useState(false);
-  const [bio, setBio] = useState(false);
+  const [bio, setBio] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const userId = user?.id;
-  const talentInfo = async (e) => {
+  const talentNextProfil = async (e) => {
     e.preventDefault();
     setIsLoading(true);
     setIsSubmitting(true);
@@ -85,69 +86,65 @@ export default function TalentInfo() {
               <CardDescription>Modifier vos informations</CardDescription>
             </CardHeader>
             <CardContent>
-              <form onSubmit={talentInfo}>
+              <form onSubmit={talentNextProfil}>
                 <p className="text-md mb-4 mt-4 font-semibold">Votre Niveau</p>
-                <RadioGroup defaultValue="Junior" className="mt-4 mb-4">
-                  <div className="flex items-center space-x-2">
-                    <RadioGroupItem
-                      value={"Junior"}
-                      id="r1"
-                      onChange={(e) => setLevel(e.target.value)}
-                    />
-                    <Label htmlFor="r1">Junior</Label>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <RadioGroupItem
-                      value={"intermediaire"}
-                      id="r2"
-                      onChange={(e) => setLevel(e.target.value)}
-                    />
-                    <Label htmlFor="r2">Intermédiaire</Label>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <RadioGroupItem
-                      value={"expert"}
-                      id="r3"
-                      onChange={(e) => setLevel(e.target.value)}
-                    />
-                    <Label htmlFor="r3">Expert</Label>
-                  </div>
-                </RadioGroup>
+                <Select value={level} onValueChange={setLevel}>
+                  <SelectTrigger className="w-[180px]">
+                    <SelectValue placeholder="Niveau" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="Junior">Junior</SelectItem>
+                    <SelectItem value="Intermédiaire">Intermédiaire</SelectItem>
+                    <SelectItem value="Expert">Expert</SelectItem>
+                  </SelectContent>
+                </Select>
+
                 <p className="text-md mb-4 mt-4 font-semibold">Remote</p>
-                <div className="flex justify-between mt-4 mb-4">
-                  <Label htmlFor="airplane-mode1">
-                    Disponible pour des opportunités à distance
-                  </Label>
-                  <Switch id="airplane-mode1" onChange={toggleRemote} />
-                </div>
+                <Select value={remote} onValueChange={setRemote}>
+                  <SelectTrigger className="w-[180px]">
+                    <SelectValue placeholder="Remote" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="true">OUI</SelectItem>
+                    <SelectItem value="false">NON</SelectItem>
+                  </SelectContent>
+                </Select>
                 <p className="text-md mb-4 mt-4 font-semibold">Freelance</p>
-                <div className="flex justify-between mt-4 mb-4">
-                  <Label htmlFor="airplane-mode2">
-                    Souhaitez-vous travailler en Freelance ?
-                  </Label>
-                  <Switch id="airplane-mode2" />
-                </div>
+                <Select value={freelance} onValueChange={setFreelance}>
+                  <SelectTrigger className="w-[180px]">
+                    <SelectValue placeholder="Freelance" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="true">OUI</SelectItem>
+                    <SelectItem value="false">NON</SelectItem>
+                  </SelectContent>
+                </Select>
                 <p className="text-md mb-4 mt-4 font-semibold">Sur site </p>
-                <div className="flex justify-between mt-4 mb-4">
-                  <Label htmlFor="airplane-mode3">
-                    Souhaitez-vous travailler sur site ?
-                  </Label>
-                  <Switch id="airplane-mode3" />
-                </div>
+                <Select value={onsite} onValueChange={setOnsite}>
+                  <SelectTrigger className="w-[180px]">
+                    <SelectValue placeholder="Sur site" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="true">OUI</SelectItem>
+                    <SelectItem value="false  ">NON</SelectItem>
+                  </SelectContent>
+                </Select>
                 <p className="text-md mb-4 mt-4 font-semibold">Disponibilité</p>
-                <RadioGroup defaultValue="available" className="mt-4 mb-4">
-                  <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="available" id="d1" />
-                    <Label htmlFor="d1">Disponible</Label>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="comfortable" id="d2" />
-                    <Label htmlFor="d2">Non disponible</Label>
-                  </div>
-                </RadioGroup>
+                <Select value={available} onValueChange={setAvailable}>
+                  <SelectTrigger className="w-[180px]">
+                    <SelectValue placeholder="Disponibilité" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="true">OUI</SelectItem>
+                    <SelectItem value="false">NON</SelectItem>
+                  </SelectContent>
+                </Select>
+
                 <p className="text-md mb-4 mt-4 font-semibold">Bio</p>
 
                 <Textarea
+                  value={bio}
+                  onChange={(e) => setBio(e.target.value)}
                   className="mb-4"
                   placeholder="Bio"
                   defaultValue="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, mauris eu tincidunt"
