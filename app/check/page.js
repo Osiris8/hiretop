@@ -7,20 +7,21 @@ import Status from "@/models/status";
 
 export default async function Protected() {
   const { isAuthenticated, getUser } = getKindeServerSession();
-  console.log(getUser);
 
   if (!(await isAuthenticated())) {
     redirect("/api/auth/login");
   }
 
   await connectToDB();
-  const userId = await Status.findOne({ userId: getUser().id });
-  if (!(await userId)) {
+  const userId = (await getUser()).id;
+
+  const user = await Status.findOne({ userId: userId });
+  if (!user) {
     redirect("/profile-choice");
-  } else if (!((await userId.typeOfProfile) === "company")) {
-    redirect("/company");
-  } else if (!((await userId.typeOfProfile) === "talent")) {
-    redirect("/job");
+  } else if ((await user.typeOfProfile) === "company") {
+    redirect("/dashboard-company");
+  } else if ((await user.typeOfProfile) === "talent") {
+    redirect("/dashboard-talent");
   }
   return (
     <div>
