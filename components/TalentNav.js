@@ -14,7 +14,7 @@ import {
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
-export default function NavTalent() {
+export default function TalentNav() {
   const { user } = useKindeBrowserClient();
   const userId = user?.id;
   const [userTalent, setUserTalent] = useState({});

@@ -16,7 +16,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
-export default function DashboardTalent() {
+export default function TalentDashboard() {
   const { user } = useKindeBrowserClient();
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
@@ -25,7 +25,7 @@ export default function DashboardTalent() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const userId = user?.id;
-  const dashboardTalent = async (e) => {
+  const talentDashboard = async (e) => {
     e.preventDefault();
     setIsLoading(true);
     setIsSubmitting(true);
@@ -73,7 +73,7 @@ export default function DashboardTalent() {
               <CardDescription>Modifier vos informations</CardDescription>
             </CardHeader>
             <CardContent>
-              <form onSubmit={dashboardTalent}>
+              <form onSubmit={talentDashboard}>
                 <Label htmlFor="firstname">Votre Prénom</Label>
                 <Input
                   required={true}
