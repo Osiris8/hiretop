@@ -22,6 +22,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Input } from "@/components/ui/input";
 
 export default function TalentNextProfil() {
   const { user } = useKindeBrowserClient();
@@ -33,6 +34,8 @@ export default function TalentNextProfil() {
   const [onsite, setOnsite] = useState("");
   const [available, setAvailable] = useState("");
   const [bio, setBio] = useState("");
+  const [country, setCountry] = useState("");
+  const [city, setCity] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const userId = user?.id;
@@ -49,6 +52,9 @@ export default function TalentNextProfil() {
           freelance: freelance,
           onsite: onsite,
           available: available,
+          city: city,
+          country: country,
+
           bio: bio,
         }),
       });
@@ -140,6 +146,25 @@ export default function TalentNextProfil() {
                   </SelectContent>
                 </Select>
 
+                <p className="text-md mb-4 mt-4 font-semibold">Ville</p>
+
+                <Input
+                  value={city}
+                  onChange={(e) => setCity(e.target.value)}
+                  className="mb-4"
+                  placeholder="Ville"
+                  defaultValue="Ville"
+                />
+                <p className="text-md mb-4 mt-4 font-semibold">Pays</p>
+
+                <Input
+                  value={country}
+                  onChange={(e) => setCountry(e.target.value)}
+                  className="mb-4"
+                  placeholder="Pays"
+                  defaultValue="Pays"
+                />
+
                 <p className="text-md mb-4 mt-4 font-semibold">Bio</p>
 
                 <Textarea
@@ -149,7 +174,6 @@ export default function TalentNextProfil() {
                   placeholder="Bio"
                   defaultValue="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, mauris eu tincidunt"
                 />
-
                 {!isLoading && <Button type="submit">Save</Button>}
                 {isLoading && <Button disabled={isLoading}>Loading</Button>}
               </form>

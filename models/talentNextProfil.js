@@ -20,6 +20,12 @@ const TalentNextProfilSchema = new Schema({
   available: {
     type: String, // non requis
   },
+  city: {
+    type: String, // non requis
+  },
+  country: {
+    type: String, // non requis
+  },
   bio: {
     type: String, // non requis
   },
