@@ -15,7 +15,6 @@ import {
 } from "@/components/ui/card";
 
 import { Input } from "@/components/ui/input";
-
 export default function TalentSkill() {
   const { user } = useKindeBrowserClient();
 
@@ -26,7 +25,7 @@ export default function TalentSkill() {
   const [skill, setSkill] = useState("");
   const [allSkills, setAllSkills] = useState([]);
 
-  /*useEffect(() => {
+  useEffect(() => {
     const getSkill = async () => {
       if (user && user.id) {
         // Vérifier que 'user' et 'user.id' existent
@@ -34,13 +33,14 @@ export default function TalentSkill() {
 
         const data = await response.json();
         console.log(data);
+
         setAllSkills(data);
       } else {
         console.log("User not logged in or user data not loaded");
       }
     };
     getSkill();
-  }, [userId, user]);*/
+  }, [userId, user, skill]);
 
   const talentSkill = async (e) => {
     e.preventDefault();
@@ -57,9 +57,21 @@ export default function TalentSkill() {
 
       if (response.ok) {
         setIsLoading(false);
-        console.log(response);
         setSkill("");
         setAllSkills([...allSkills, skill]);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const deleteSkill = async (id) => {
+    try {
+      const response = await fetch(`/api/talent-skill/${id}`, {
+        method: "DELETE",
+      });
+      if (response.ok) {
+        setAllSkills(allSkills.filter((skill) => skill._id !== id));
       }
     } catch (error) {
       console.error(error);
@@ -93,12 +105,15 @@ export default function TalentSkill() {
             </CardHeader>
             <CardContent>
               <ul>
-                {allSkills.map((allSkills, index) => (
-                  <li key={index} className="flex items-center justify-between">
-                    <span>{allSkills}</span>
+                {allSkills.map((allSkill) => (
+                  <li
+                    key={allSkill._id}
+                    className="flex items-center justify-between"
+                  >
+                    <span>{allSkill.skill}</span>
                     <Button
                       variant="destructive"
-                      onClick={() => removeExperience(index)}
+                      onClick={() => deleteSkill(allSkill._id)}
                     >
                       Supprimer
                     </Button>
@@ -114,6 +129,30 @@ export default function TalentSkill() {
                   placeholder="Ajoutez votre expérience"
                   className="mb-4"
                 />
+                <div class="col-span-full">
+                  <label
+                    for="start-date"
+                    class="block mb-3 text-sm font-medium text-black"
+                  >
+                    Date de début
+                  </label>
+                  <Input type="date" id="start-date" />
+                </div>
+                <div class="col-span-full">
+                  <label
+                    for="country"
+                    class="block mb-3 text-sm font-medium text-black"
+                  >
+                    Pays
+                  </label>
+                  <input
+                    required
+                    id="country"
+                    class="block w-full h-12 px-4 py-2 text-blue-500 duration-200 border rounded-lg appearance-none bg-chalk border-zinc-300 placeholder-zinc-300 focus:border-zinc-300 focus:outline-none focus:ring-zinc-300 sm:text-sm"
+                    placeholder="Your country"
+                    type="text"
+                  />
+                </div>
                 {!isLoading && <Button type="submit">Save</Button>}
                 {isLoading && <Button disabled={isLoading}>Loading</Button>}
               </form>

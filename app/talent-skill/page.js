@@ -12,7 +12,7 @@ export default function TalentDashboard() {
   return isAuthenticated ? (
     <div className="flex min-h-screen w-full flex-col">
       <TalentNav />
-      <TalentSkillData />
+
       <TalentSkill />
     </div>
   ) : (
