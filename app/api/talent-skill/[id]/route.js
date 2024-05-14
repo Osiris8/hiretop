@@ -1,25 +1,21 @@
 import { connectToDB } from "@/utils/database";
-import TalentExperience from "@/models/talentExperience";
-
+import TalentSkill from "@/models/talentSkill";
 export const GET = async (request, { params }) => {
   try {
     await connectToDB();
 
-    const talentProfil = await Talent.find({ userId: params.id });
+    const talentSkill = await TalentSkill.find({ userId: params.id });
 
-    if (!talentProfil) {
-      return new Response(
-        JSON.stringify({ error: "Talent profil not found" }),
-        {
-          status: 404,
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+    if (!talentSkill) {
+      return new Response(JSON.stringify({ error: "Talent Skill not found" }), {
+        status: 404,
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
     }
 
-    return new Response(JSON.stringify(talentProfil), {
+    return new Response(JSON.stringify(talentSkill), {
       status: 200,
       headers: {
         "Content-Type": "application/json",

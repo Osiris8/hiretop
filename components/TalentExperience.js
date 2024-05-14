@@ -50,6 +50,20 @@ export default function TalentExperience() {
     }
   };
 
+  /*const removeExperience = (index) => {
+    console.log(index);
+    console.log("Removing experience:", index);
+    fetch(`/api/talent-experience/${index}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => setExperiences(data))
+      .catch((error) => console.error("Error removing experience:", error));
+  };*/
+
   return (
     <main className="flex min-h-[calc(100vh_-_theme(spacing.16))] flex-1 flex-col gap-4 bg-muted/40 p-4 md:gap-8 md:p-10">
       <div className="mx-auto grid w-full max-w-6xl gap-2">
@@ -77,14 +91,21 @@ export default function TalentExperience() {
             </CardHeader>
             <CardContent>
               <ul>
-                {experiences.map((experience, index) => (
-                  <li key={index}>
-                    {experience}
-                    <button onClick={() => handleRemoveExperience(index)}>
-                      Supprimer
-                    </button>
-                  </li>
-                ))}
+                {Array.isArray(experiences) &&
+                  experiences.map((experience, index) => (
+                    <li
+                      key={index}
+                      className="flex items-center justify-between"
+                    >
+                      <span>{experience}</span>
+                      <Button
+                        variant="destructive"
+                        onClick={() => removeExperience(index)}
+                      >
+                        Supprimer
+                      </Button>
+                    </li>
+                  ))}
               </ul>
               <form onSubmit={talentExperience}>
                 <Input
