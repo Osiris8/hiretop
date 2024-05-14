@@ -14,7 +14,6 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 export default function CompanyDashboard() {
   const { user } = useKindeBrowserClient();
@@ -32,11 +31,13 @@ export default function CompanyDashboard() {
     setIsLoading(true);
     setIsSubmitting(true);
     try {
-      const response = await fetch(`/api/talent-profil/${userId}`, {
+      const response = await fetch(`/api/company-profil/${userId}`, {
         method: "PATCH",
         body: JSON.stringify({
-          firstname: firstname,
-          lastname: lastname,
+          company: company,
+          domain: domain,
+          size: size,
+          position: position,
           telephone: telephone,
           country: country,
         }),
