@@ -14,7 +14,9 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Separator } from "@/components/ui/separator";
+
 export default function TalentSkill() {
   const { user } = useKindeBrowserClient();
 
@@ -108,9 +110,10 @@ export default function TalentSkill() {
                 {allSkills.map((allSkill) => (
                   <li
                     key={allSkill._id}
-                    className="flex items-center justify-between"
+                    className="flex items-center justify-between mb-4"
                   >
                     <span>{allSkill.skill}</span>
+
                     <Button
                       variant="destructive"
                       onClick={() => deleteSkill(allSkill._id)}
@@ -122,37 +125,13 @@ export default function TalentSkill() {
               </ul>
 
               <form onSubmit={talentSkill}>
-                <Input
+                <Textarea
                   type="text"
                   value={skill}
                   onChange={(e) => setSkill(e.target.value)}
-                  placeholder="Ajoutez votre expérience"
+                  placeholder="Ajoutez votre expérience, le role,la date de début et de fin..."
                   className="mb-4"
                 />
-                <div class="col-span-full">
-                  <label
-                    for="start-date"
-                    class="block mb-3 text-sm font-medium text-black"
-                  >
-                    Date de début
-                  </label>
-                  <Input type="date" id="start-date" />
-                </div>
-                <div class="col-span-full">
-                  <label
-                    for="country"
-                    class="block mb-3 text-sm font-medium text-black"
-                  >
-                    Pays
-                  </label>
-                  <input
-                    required
-                    id="country"
-                    class="block w-full h-12 px-4 py-2 text-blue-500 duration-200 border rounded-lg appearance-none bg-chalk border-zinc-300 placeholder-zinc-300 focus:border-zinc-300 focus:outline-none focus:ring-zinc-300 sm:text-sm"
-                    placeholder="Your country"
-                    type="text"
-                  />
-                </div>
                 {!isLoading && <Button type="submit">Save</Button>}
                 {isLoading && <Button disabled={isLoading}>Loading</Button>}
               </form>

@@ -2,7 +2,7 @@
 
 import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 import { LoginLink } from "@kinde-oss/kinde-auth-nextjs/components";
-import TalentSkillData from "@/components/TalentSkillData";
+
 import TalentNav from "@/components/TalentNav";
 import TalentSkill from "@/components/TalentSkill";
 export default function TalentDashboard() {
