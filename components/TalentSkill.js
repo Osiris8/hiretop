@@ -16,7 +16,7 @@ import {
 
 import { Input } from "@/components/ui/input";
 
-export default function TalentExperience() {
+export default function TalentSkill() {
   const { user } = useKindeBrowserClient();
 
   const [isSubmitting, setIsSubmitting] = useState(false);

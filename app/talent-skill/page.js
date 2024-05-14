@@ -2,7 +2,7 @@
 
 import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 import { LoginLink } from "@kinde-oss/kinde-auth-nextjs/components";
-
+import TalentSkillData from "@/components/TalentSkillData";
 import TalentNav from "@/components/TalentNav";
 import TalentSkill from "@/components/TalentSkill";
 export default function TalentDashboard() {
@@ -12,7 +12,7 @@ export default function TalentDashboard() {
   return isAuthenticated ? (
     <div className="flex min-h-screen w-full flex-col">
       <TalentNav />
-
+      <TalentSkillData />
       <TalentSkill />
     </div>
   ) : (
