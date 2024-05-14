@@ -45,7 +45,7 @@ export default function CompanyProfil() {
       });
 
       if (response2.ok && response.ok) {
-        router.push("/dashboard-company");
+        router.push("/company-dashboard");
       }
     } catch (error) {
       console.log(error);
