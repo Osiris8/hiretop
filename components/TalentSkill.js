@@ -16,7 +16,7 @@ import {
 
 import { Input } from "@/components/ui/input";
 
-export default function TalentNextProfil() {
+export default function TalentSkill() {
   const { user } = useKindeBrowserClient();
 
   const [experience, setExperience] = useState("");

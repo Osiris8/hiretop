@@ -19,9 +19,9 @@ export default async function Protected() {
   if (!user) {
     redirect("/profile-choice");
   } else if ((await user.typeOfProfile) === "company") {
-    redirect("/dashboard-company");
+    redirect("/company-dashboard");
   } else if ((await user.typeOfProfile) === "talent") {
-    redirect("/dashboard-talent");
+    redirect("/talent-dashboard");
   }
   return (
     <div>
