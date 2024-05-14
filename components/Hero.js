@@ -38,6 +38,7 @@ function Hero() {
               <Image
                 src={HeroImage}
                 class="object-cover h-full border shadow-2xl rounded-2xl"
+                alt="hero image"
               />
             </div>
           </div>

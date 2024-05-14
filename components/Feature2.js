@@ -22,7 +22,7 @@ export default function Feature2() {
               outils de filtrage avancés, trouvez rapidement les talents qui
               correspondent parfaitement à vos besoins spécifiques et
               préparez-vous à atteindre de nouveaux sommets de performance et
-              d'innovation.
+              d&apos;innovation.
             </p>
             <div class="flex flex-col items-center gap-2 mx-auto mt-8 md:flex-row">
               <button

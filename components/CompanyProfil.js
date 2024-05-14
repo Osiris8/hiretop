@@ -64,7 +64,7 @@ export default function CompanyProfil() {
                 <span class="text-gray-600">en tant que compagnie</span>
               </h1>
               <p class="mt-4 mb-4 text-base font-medium text-gray-500">
-                Rejoignez-nous dès aujourd'hui et découvrez comment notre
+                Rejoignez-nous dès aujourd&apos;hui et découvrez comment notre
                 plateforme peut transformer votre processus de recrutement.
               </p>
             </div>

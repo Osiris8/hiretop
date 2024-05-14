@@ -15,12 +15,12 @@ export default function Feature1() {
               Votre prochaine grande opportunité vous attend ici
             </p>
             <p class="mt-4 text-base font-medium text-gray-500">
-              Rejoignez une communauté de talents exceptionnels, où l'innovation
-              rencontre l'excellence, où les idées prennent vie et où les
-              opportunités de croissance professionnelle sont infinies.
-              Ensemble, nous construisons un réseau dynamique où chaque membre
-              apporte sa propre expertise et contribue à façonner l'avenir du
-              monde professionnel.
+              Rejoignez une communauté de talents exceptionnels, où
+              l&apos;innovation rencontre l&apos;excellence, où les idées
+              prennent vie et où les opportunités de croissance professionnelle
+              sont infinies. Ensemble, nous construisons un réseau dynamique où
+              chaque membre apporte sa propre expertise et contribue à façonner
+              l&apos;avenir du monde professionnel.
             </p>
             <div class="flex flex-col items-center gap-2 mx-auto mt-8 md:flex-row">
               <button
