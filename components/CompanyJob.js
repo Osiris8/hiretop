@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+
 import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 import Link from "next/link";
 
@@ -16,6 +17,8 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "./ui/textarea";
+import { redirect } from "next/navigation";
+
 export default function CompanyJob() {
   const { user } = useKindeBrowserClient();
   const [title, setTitle] = useState("");
@@ -26,8 +29,10 @@ export default function CompanyJob() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const userId = user?.id;
+
   const companyJob = async (e) => {
     e.preventDefault();
+
     setIsLoading(true);
     setIsSubmitting(true);
 
@@ -38,7 +43,7 @@ export default function CompanyJob() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          userId: userId.id,
+          userId: userId,
           title: title,
           description: description,
           profil: profil,
@@ -48,7 +53,11 @@ export default function CompanyJob() {
 
       if (response.ok) {
         setIsLoading(false);
+        alert(
+          "Vous avez ajouter une nouvelle de récrutement avec succès ! Vous allez etre rediriger vers la page de profil"
+        );
         console.log(response);
+        redirect("/company-dashboard");
       }
     } catch (error) {
       console.log(error);
@@ -82,11 +91,11 @@ export default function CompanyJob() {
               <CardDescription>Poster un Job</CardDescription>
             </CardHeader>
             <CardContent>
-              {isLoading && isSubmitting && (
-                <ul>
-                  <li>Job POsté</li>
-                </ul>
-              )}
+              <ul>
+                {!setIsSubmitting && (
+                  <div className="text-center">Chargement...</div>
+                )}
+              </ul>
               <form onSubmit={companyJob}>
                 <Label htmlFor="jobTitle">Titre du Poste</Label>
                 <Input

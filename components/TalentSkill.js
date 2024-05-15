@@ -14,7 +14,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-import { Textarea } from "@/components/ui/textarea";
+import { Input } from "./ui/input";
 import { Separator } from "@/components/ui/separator";
 
 export default function TalentSkill() {
@@ -91,12 +91,12 @@ export default function TalentSkill() {
           x-chunk="dashboard-04-chunk-0"
         >
           <Link href="#">General</Link>
-          <Link href="#" className="font-semibold text-primary">
-            Profil
-          </Link>
+          <Link href="#">Profil</Link>
           <Link href="#">Avatar</Link>
           <Link href="#">Expériences</Link>
-          <Link href="#">Compétences</Link>
+          <Link href="#" className="font-semibold text-primary">
+            Compétences
+          </Link>
           <Link href="#">Réseaux sociaux</Link>
         </nav>
         <div className="grid gap-6">
@@ -125,11 +125,11 @@ export default function TalentSkill() {
               </ul>
 
               <form onSubmit={talentSkill}>
-                <Textarea
+                <Input
                   type="text"
                   value={skill}
                   onChange={(e) => setSkill(e.target.value)}
-                  placeholder="Ajoutez votre expérience, le role,la date de début et de fin..."
+                  placeholder="Ajoutez une compétence à la fois : Javascript, React, Angular, Node, etc..."
                   className="mb-4"
                 />
                 {!isLoading && <Button type="submit">Save</Button>}
