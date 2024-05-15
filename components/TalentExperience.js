@@ -14,7 +14,8 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Separator } from "@/components/ui/separator";
 
 export default function TalentExperience() {
   const { user } = useKindeBrowserClient();
@@ -24,7 +25,24 @@ export default function TalentExperience() {
   const userId = user?.id;
 
   const [experience, setExperience] = useState("");
-  const [experiences, setExperiences] = useState([]);
+  const [allExperiences, setAllExperiences] = useState([]);
+
+  useEffect(() => {
+    const getExperience = async () => {
+      if (user && user.id) {
+        // Vérifier que 'user' et 'user.id' existent
+        const response = await fetch(`/api/talent-experience/${userId}`);
+
+        const data = await response.json();
+        console.log(data);
+
+        setAllExperiences(data);
+      } else {
+        console.log("User not logged in or user data not loaded");
+      }
+    };
+    getExperience();
+  }, [userId, user, experience]);
 
   const talentExperience = async (e) => {
     e.preventDefault();
@@ -41,28 +59,28 @@ export default function TalentExperience() {
 
       if (response.ok) {
         setIsLoading(false);
-        console.log(response);
         setExperience("");
-        setExperiences([...experiences, experience]);
+        setAllExperiences([...allExperiences, experience]);
       }
     } catch (error) {
       console.error(error);
     }
   };
 
-  /*const removeExperience = (index) => {
-    console.log(index);
-    console.log("Removing experience:", index);
-    fetch(`/api/talent-experience/${index}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => setExperiences(data))
-      .catch((error) => console.error("Error removing experience:", error));
-  };*/
+  const deleteExperience = async (id) => {
+    try {
+      const response = await fetch(`/api/talent-experience/${id}`, {
+        method: "DELETE",
+      });
+      if (response.ok) {
+        setAllExperiences(
+          allExperiences.filter((experience) => experience._id !== id)
+        );
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <main className="flex min-h-[calc(100vh_-_theme(spacing.16))] flex-1 flex-col gap-4 bg-muted/40 p-4 md:gap-8 md:p-10">
@@ -91,28 +109,29 @@ export default function TalentExperience() {
             </CardHeader>
             <CardContent>
               <ul>
-                {Array.isArray(experiences) &&
-                  experiences.map((experience, index) => (
-                    <li
-                      key={index}
-                      className="flex items-center justify-between"
+                {allExperiences.map((allExperience) => (
+                  <li
+                    key={allExperience._id}
+                    className="flex items-center justify-between mb-4"
+                  >
+                    <span>{allExperience.description}</span>
+
+                    <Button
+                      variant="destructive"
+                      onClick={() => deleteExperience(allExperience._id)}
                     >
-                      <span>{experience}</span>
-                      <Button
-                        variant="destructive"
-                        onClick={() => removeExperience(index)}
-                      >
-                        Supprimer
-                      </Button>
-                    </li>
-                  ))}
+                      Supprimer
+                    </Button>
+                  </li>
+                ))}
               </ul>
+
               <form onSubmit={talentExperience}>
-                <Input
+                <Textarea
                   type="text"
                   value={experience}
                   onChange={(e) => setExperience(e.target.value)}
-                  placeholder="Ajoutez votre expérience"
+                  placeholder="Ajoutez votre expérience, le role,la date de début et de fin..."
                   className="mb-4"
                 />
                 {!isLoading && <Button type="submit">Save</Button>}
