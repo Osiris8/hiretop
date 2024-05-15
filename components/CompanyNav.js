@@ -17,22 +17,22 @@ import { useEffect, useState } from "react";
 export default function CompanyNav() {
   const { user } = useKindeBrowserClient();
   const userId = user?.id;
-  const [userTalent, setUserTalent] = useState({});
+  const [userCompany, setUserCompany] = useState({});
 
   useEffect(() => {
-    const getTalent = async () => {
+    const getCompany = async () => {
       if (user && user.id) {
         // Vérifier que 'user' et 'user.id' existent
-        const response = await fetch(`/api/talent-profil/${userId}`);
+        const response = await fetch(`/api/company-profil/${userId}`);
 
         const data = await response.json();
         console.log(data);
-        setUserTalent(data);
+        setUserCompany(data);
       } else {
         console.log("User not logged in or user data not loaded");
       }
     };
-    getTalent();
+    getCompany();
   }, [userId, user]); // Dépendance à 'user' pour que useEffect se ré-exécute lorsque 'user' change
 
   return (
@@ -122,12 +122,10 @@ export default function CompanyNav() {
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>My Account</DropdownMenuLabel>
-            <DropdownMenuItem>
-              {userTalent[0]?.firstname + " " + userTalent[0]?.lastname}
-            </DropdownMenuItem>
+            <DropdownMenuItem>{userCompany[0]?.company}</DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem>Settings</DropdownMenuItem>
-            <DropdownMenuItem>Profil</DropdownMenuItem>
+
             <DropdownMenuSeparator />
             <DropdownMenuItem>Logout</DropdownMenuItem>
           </DropdownMenuContent>

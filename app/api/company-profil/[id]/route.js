@@ -5,11 +5,11 @@ export const GET = async (request, { params }) => {
   try {
     await connectToDB();
 
-    const talentProfil = await Talent.find({ userId: params.id });
+    const companyProfil = await Company.find({ userId: params.id });
 
-    if (!talentProfil) {
+    if (!companyProfil) {
       return new Response(
-        JSON.stringify({ error: "Talent profil not found" }),
+        JSON.stringify({ error: "Company profil not found" }),
         {
           status: 404,
           headers: {
@@ -19,7 +19,7 @@ export const GET = async (request, { params }) => {
       );
     }
 
-    return new Response(JSON.stringify(talentProfil), {
+    return new Response(JSON.stringify(companyProfil), {
       status: 200,
       headers: {
         "Content-Type": "application/json",
