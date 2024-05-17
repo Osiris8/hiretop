@@ -15,8 +15,10 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 import Image from "next/image";
+
 export default function TalentNav() {
   const { user } = useKindeBrowserClient();
+
   const userId = user?.id;
   const [userTalent, setUserTalent] = useState({});
   const [profilImageUrl, setProfilImageUrl] = useState("");
