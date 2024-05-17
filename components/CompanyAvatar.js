@@ -16,6 +16,7 @@ import {
 
 import { Input } from "./ui/input";
 import { useEdgeStore } from "../lib/edgestore";
+import { useRouter } from "next/navigation";
 
 export default function CompanyAvatar() {
   const { user } = useKindeBrowserClient();
@@ -27,6 +28,7 @@ export default function CompanyAvatar() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const userId = user?.id;
+  const router = useRouter();
 
   const companyAvatar = async (e) => {
     e.preventDefault();
@@ -50,6 +52,7 @@ export default function CompanyAvatar() {
         if (response.ok) {
           setIsLoading(false);
           console.log(response);
+          router.push("/company-dashboard");
         }
       } catch (error) {
         console.error(error);

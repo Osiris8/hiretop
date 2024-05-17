@@ -14,10 +14,12 @@ import {
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 export default function CompanyNav() {
   const { user } = useKindeBrowserClient();
   const userId = user?.id;
   const [userCompany, setUserCompany] = useState({});
+  const [profilImageUrl, setProfilImageUrl] = useState("");
 
   useEffect(() => {
     const getCompany = async () => {
@@ -32,8 +34,23 @@ export default function CompanyNav() {
         console.log("User not logged in or user data not loaded");
       }
     };
+    const getCompanyAvatar = async () => {
+      if (user && user.id) {
+        // Vérifier que 'user' et 'user.id' existent
+        const response = await fetch(`/api/company-avatar/${userId}`);
+
+        const data = await response.json();
+        console.log(data);
+
+        console.log(data[0].avatar);
+        setProfilImageUrl(data[0].avatar);
+      } else {
+        console.log("User not logged in or user data not loaded");
+      }
+    };
     getCompany();
-  }, [userId, user]); // Dépendance à 'user' pour que useEffect se ré-exécute lorsque 'user' change
+    getCompanyAvatar();
+  }, [userId, user, profilImageUrl]); // Dépendance à 'user' pour que useEffect se ré-exécute lorsque 'user' change
 
   return (
     <header className="flex h-16 items-center gap-4 border-b bg-background px-4 md:px-6">
@@ -116,7 +133,17 @@ export default function CompanyNav() {
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="secondary" size="icon" className="rounded-full">
-              <CircleUser className="h-5 w-5" />
+              {profilImageUrl[0] ? (
+                <Image
+                  src={profilImageUrl}
+                  alt="Avatar"
+                  className="h-8 w-8 rounded-full"
+                  width={32}
+                  height={32}
+                />
+              ) : (
+                <CircleUser className="h-5 w-5" />
+              )}
               <span className="sr-only">Toggle user menu</span>
             </Button>
           </DropdownMenuTrigger>
