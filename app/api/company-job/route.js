@@ -2,6 +2,8 @@ import CompanyJob from "@/models/companyJob";
 import CompanyAvatar from "@/models/companyAvatar";
 import Company from "@/models/company";
 import { connectToDB } from "@/utils/database";
+import { formatDistanceToNow } from "date-fns";
+import { fr } from "date-fns/locale";
 
 export const POST = async (request) => {
   const {
@@ -61,11 +63,17 @@ export const GET = async (request) => {
           companyName
         );
 
+        const formattedDate = formatDistanceToNow(new Date(job.createdAt), {
+          addSuffix: true,
+          locale: fr,
+        });
+
         // Retourner un nouvel objet job avec les données du job, l'avatar et le nom de la compagnie
         return {
           ...job._doc, // Inclure toutes les propriétés du document job
           avatar: companyAvatar ? companyAvatar.avatar : null, // Ajouter la propriété avatar
           companyName: companyName ? companyName.company : null, // Ajouter la propriété companyName
+          publicationDate: `publié ${formattedDate}`, // Ajouter la date formatée
         };
       })
     );
