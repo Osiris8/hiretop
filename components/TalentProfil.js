@@ -1,75 +1,47 @@
+// components/TalentProfil.js
 "use client";
-import React, { useState } from "react";
+
+import React from "react";
 import { useRouter } from "next/navigation";
 import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
+import { useTalentProfil } from "@/hooks/useTalentProfil";
+
 export default function TalentProfil() {
   const { isAuthenticated, user } = useKindeBrowserClient();
-  const [firstname, setFirstname] = useState("");
-  const [lastname, setLastname] = useState("");
-  const [telephone, setTelephone] = useState("");
-  const [country, setCountry] = useState("");
-
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const [typeOfProfile, setTypeOfProfile] = useState("talent");
   const router = useRouter();
+  const {
+    firstname,
+    setFirstname,
+    lastname,
+    setLastname,
+    telephone,
+    setTelephone,
+    country,
+    setCountry,
+    isSubmitting,
+    updateTalentProfil,
+  } = useTalentProfil(user);
 
-  const talentProfil = async (e) => {
-    e.preventDefault();
-
-    try {
-      const response = await fetch("api/talent-profil", {
-        method: "POST",
-        body: JSON.stringify({
-          userId: user.id,
-          firstname: firstname,
-          lastname: lastname,
-          telephone: telephone,
-          country: country,
-        }),
-      });
-
-      const response2 = await fetch("/api/status-profil", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          userId: user.id,
-          typeOfProfile: typeOfProfile,
-        }),
-      });
-
-      if (response2.ok && response.ok) {
-        router.push("/");
-      }
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
   return (
     <div>
       <section className="bg-white">
-        <div class="px-8 py-24 mx-auto md:px-12 lg:px-32 max-w-7xl">
-          <div class="max-w-md mx-auto md:max-w-sm md:w-96">
-            <div class="flex flex-col text-center">
-              <h1 class="text-3xl font-semibold tracking-tighter text-gray-900">
+        <div className="px-8 py-24 mx-auto md:px-12 lg:px-32 max-w-7xl">
+          <div className="max-w-md mx-auto md:max-w-sm md:w-96">
+            <div className="flex flex-col text-center">
+              <h1 className="text-3xl font-semibold tracking-tighter text-gray-900">
                 Compléter votre profil,
-                <span class="text-gray-600">en tant que Talent</span>
+                <span className="text-gray-600"> en tant que Talent</span>
               </h1>
-              <p class="mt-4 text-base font-medium text-gray-500">
+              <p className="mt-4 text-base font-medium text-gray-500">
                 Démarquez-vous et boostez votre carrière avec notre plateforme.
               </p>
             </div>
-
-            <form onSubmit={talentProfil}>
-              <div class="space-y-3">
+            <form onSubmit={(e) => updateTalentProfil(e, router)}>
+              <div className="space-y-3">
                 <div>
                   <label
-                    for="name"
-                    class="block mb-3 text-sm font-medium text-black"
+                    htmlFor="firstname"
+                    className="block mb-3 text-sm font-medium text-black"
                   >
                     First name
                   </label>
@@ -80,13 +52,13 @@ export default function TalentProfil() {
                     type="text"
                     id="firstname"
                     placeholder="Your Firstname"
-                    class="block w-full h-12 px-4 py-2 text-blue-500 duration-200 border rounded-lg appearance-none bg-chalk border-zinc-300 placeholder-zinc-300 focus:border-zinc-300 focus:outline-none focus:ring-zinc-300 sm:text-sm"
+                    className="block w-full h-12 px-4 py-2 text-blue-500 duration-200 border rounded-lg appearance-none bg-chalk border-zinc-300 placeholder-zinc-300 focus:border-zinc-300 focus:outline-none focus:ring-zinc-300 sm:text-sm"
                   />
                 </div>
-                <div class="col-span-full">
+                <div className="col-span-full">
                   <label
-                    for="lastname"
-                    class="block mb-3 text-sm font-medium text-black"
+                    htmlFor="lastname"
+                    className="block mb-3 text-sm font-medium text-black"
                   >
                     Last name
                   </label>
@@ -95,15 +67,15 @@ export default function TalentProfil() {
                     value={lastname}
                     required
                     id="lastname"
-                    class="block w-full h-12 px-4 py-2 text-blue-500 duration-200 border rounded-lg appearance-none bg-chalk border-zinc-300 placeholder-zinc-300 focus:border-zinc-300 focus:outline-none focus:ring-zinc-300 sm:text-sm"
+                    className="block w-full h-12 px-4 py-2 text-blue-500 duration-200 border rounded-lg appearance-none bg-chalk border-zinc-300 placeholder-zinc-300 focus:border-zinc-300 focus:outline-none focus:ring-zinc-300 sm:text-sm"
                     placeholder="Your lastname"
                     type="text"
                   />
                 </div>
-                <div class="col-span-full">
+                <div className="col-span-full">
                   <label
-                    for="telephone"
-                    class="block mb-3 text-sm font-medium text-black"
+                    htmlFor="telephone"
+                    className="block mb-3 text-sm font-medium text-black"
                   >
                     Telephone
                   </label>
@@ -112,33 +84,33 @@ export default function TalentProfil() {
                     value={telephone}
                     required
                     id="telephone"
-                    class="block w-full h-12 px-4 py-2 text-blue-500 duration-200 border rounded-lg appearance-none bg-chalk border-zinc-300 placeholder-zinc-300 focus:border-zinc-300 focus:outline-none focus:ring-zinc-300 sm:text-sm"
+                    className="block w-full h-12 px-4 py-2 text-blue-500 duration-200 border rounded-lg appearance-none bg-chalk border-zinc-300 placeholder-zinc-300 focus:border-zinc-300 focus:outline-none focus:ring-zinc-300 sm:text-sm"
                     placeholder="Your telephone"
                     type="text"
                   />
                 </div>
-                <div class="col-span-full">
+                <div className="col-span-full">
                   <label
-                    for="country"
-                    class="block mb-3 text-sm font-medium text-black"
+                    htmlFor="country"
+                    className="block mb-3 text-sm font-medium text-black"
                   >
-                    Pays
+                    Country
                   </label>
                   <input
                     onChange={(e) => setCountry(e.target.value)}
                     value={country}
                     required
                     id="country"
-                    class="block w-full h-12 px-4 py-2 text-blue-500 duration-200 border rounded-lg appearance-none bg-chalk border-zinc-300 placeholder-zinc-300 focus:border-zinc-300 focus:outline-none focus:ring-zinc-300 sm:text-sm"
+                    className="block w-full h-12 px-4 py-2 text-blue-500 duration-200 border rounded-lg appearance-none bg-chalk border-zinc-300 placeholder-zinc-300 focus:border-zinc-300 focus:outline-none focus:ring-zinc-300 sm:text-sm"
                     placeholder="Your country"
                     type="text"
                   />
                 </div>
-                <div class="col-span-full">
+                <div className="col-span-full">
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    class="inline-flex items-center justify-center w-full h-12 gap-3 px-5 py-3 font-medium text-white duration-200 bg-gray-900 rounded-xl hover:bg-gray-700 focus:ring-2 focus:ring-offset-2 focus:ring-black"
+                    className="inline-flex items-center justify-center w-full h-12 gap-3 px-5 py-3 font-medium text-white duration-200 bg-gray-900 rounded-xl hover:bg-gray-700 focus:ring-2 focus:ring-offset-2 focus:ring-black"
                   >
                     Go to Dashboard
                   </button>
