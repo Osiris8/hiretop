@@ -5,9 +5,9 @@ export const GET = async (request, { params }) => {
   try {
     await connectToDB();
 
-    const talentProfil = await Talent.find({ userId: params.id });
+    const talentAvatar = await TalentAvatar.find({ userId: params.id });
 
-    if (!talentProfil) {
+    if (!talentAvatar) {
       return new Response(
         JSON.stringify({ error: "Talent profil not found" }),
         {
@@ -19,7 +19,7 @@ export const GET = async (request, { params }) => {
       );
     }
 
-    return new Response(JSON.stringify(talentProfil), {
+    return new Response(JSON.stringify(talentAvatar), {
       status: 200,
       headers: {
         "Content-Type": "application/json",
