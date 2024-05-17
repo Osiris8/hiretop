@@ -3,6 +3,7 @@ import { Schema, model, models } from "mongoose";
 const TalentAvatarSchema = new Schema({
   userId: {
     type: String,
+    ref: "User",
     required: true,
   },
   avatar: {

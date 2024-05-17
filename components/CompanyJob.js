@@ -17,7 +17,8 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "./ui/textarea";
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
+import { useEdgeStore } from "../lib/edgestore";
 
 export default function CompanyJob() {
   const { user } = useKindeBrowserClient();
@@ -25,44 +26,58 @@ export default function CompanyJob() {
   const [description, setDescription] = useState("");
   const [profil, setProfil] = useState("");
   const [interview, setInterview] = useState("");
+  const [file, setFile] = useState(null);
+  const [contract, setContract] = useState("");
+  const [country, setCountry] = useState("");
+  const [mainImage, setMainImage] = useState("");
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const userId = user?.id;
 
+  const { edgestore } = useEdgeStore();
+  const router = useRouter();
+
   const companyJob = async (e) => {
     e.preventDefault();
-
-    setIsLoading(true);
-    setIsSubmitting(true);
-
-    try {
-      const response = await fetch("api/company-job", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          userId: userId,
-          title: title,
-          description: description,
-          profil: profil,
-          interview: interview,
-        }),
+    if (file) {
+      setIsLoading(true);
+      setIsSubmitting(true);
+      const res = await edgestore.publicFiles.upload({
+        file,
       });
+      setMainImage(res.url);
+      try {
+        const response = await fetch("api/company-job", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            userId: userId,
+            title: title,
+            description: description,
+            profil: profil,
+            interview: interview,
+            mainImage: res.url,
+            contract: contract,
+            country: country,
+          }),
+        });
 
-      if (response.ok) {
-        setIsLoading(false);
-        alert(
-          "Vous avez ajouter une nouvelle de récrutement avec succès ! Vous allez etre rediriger vers la page de profil"
-        );
-        console.log(response);
-        redirect("/company-dashboard");
+        if (response.ok) {
+          setIsLoading(false);
+          alert(
+            "Vous avez ajouter une nouvelle de récrutement avec succès ! Vous allez etre rediriger vers la page de profil"
+          );
+          console.log(response);
+          router.push("/company-dashboard");
+        }
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setIsSubmitting(false);
       }
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setIsSubmitting(false);
     }
   };
   return (
@@ -135,6 +150,39 @@ export default function CompanyJob() {
                   placeholder="Déroulement des entretiens"
                   className="mb-8 mt-2"
                   id="jobInterview"
+                  type="text"
+                />
+
+                <Label htmlFor="jobMainImage">Image Principale</Label>
+                <Input
+                  className="mb-4"
+                  type="file"
+                  required
+                  accept=".jpg, .jpeg, .png"
+                  onChange={(e) => {
+                    setFile(e.target.files?.[0] ?? null);
+                  }}
+                />
+
+                <Label htmlFor="jobContract">Contrat</Label>
+                <Input
+                  required={true}
+                  value={contract}
+                  onChange={(e) => setContract(e.target.value)}
+                  placeholder="Contrat"
+                  className="mb-8 mt-2"
+                  id="jobContract"
+                  type="text"
+                />
+
+                <Label htmlFor="jobCountry">Pays</Label>
+                <Input
+                  required={true}
+                  value={country}
+                  onChange={(e) => setCountry(e.target.value)}
+                  placeholder="Pays"
+                  className="mb-8 mt-2"
+                  id="jobCountry"
                   type="text"
                 />
 

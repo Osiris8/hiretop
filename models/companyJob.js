@@ -23,6 +23,18 @@ const CompanyJobSchema = new Schema({
     type: String,
     required: true,
   },
+  mainImage: {
+    type: String,
+    required: true,
+  },
+  contract: {
+    type: String,
+    required: true,
+  },
+  country: {
+    type: String,
+    required: true,
+  },
   createdAt: {
     type: Date,
     default: Date.now, // Valeur par défaut pour la date de création
