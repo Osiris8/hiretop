@@ -1,6 +1,7 @@
+// components/TalentExperience.js
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 import Link from "next/link";
 
@@ -13,74 +14,20 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-
 import { Textarea } from "@/components/ui/textarea";
-import { Separator } from "@/components/ui/separator";
+import { useTalentExperience } from "@/hooks/useTalentExperience";
 
 export default function TalentExperience() {
   const { user } = useKindeBrowserClient();
-
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-  const userId = user?.id;
-
-  const [experience, setExperience] = useState("");
-  const [allExperiences, setAllExperiences] = useState([]);
-
-  useEffect(() => {
-    const getExperience = async () => {
-      if (user && user.id) {
-        // Vérifier que 'user' et 'user.id' existent
-        const response = await fetch(`/api/talent-experience/${userId}`);
-
-        const data = await response.json();
-        console.log(data);
-
-        setAllExperiences(data);
-      } else {
-        console.log("User not logged in or user data not loaded");
-      }
-    };
-    getExperience();
-  }, [userId, user, experience]);
-
-  const talentExperience = async (e) => {
-    e.preventDefault();
-    setIsLoading(true);
-    setIsSubmitting(true);
-    try {
-      const response = await fetch("api/talent-experience", {
-        method: "POST",
-        body: JSON.stringify({
-          userId: userId,
-          description: experience,
-        }),
-      });
-
-      if (response.ok) {
-        setIsLoading(false);
-        setExperience("");
-        setAllExperiences([...allExperiences, experience]);
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  const deleteExperience = async (id) => {
-    try {
-      const response = await fetch(`/api/talent-experience/${id}`, {
-        method: "DELETE",
-      });
-      if (response.ok) {
-        setAllExperiences(
-          allExperiences.filter((experience) => experience._id !== id)
-        );
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  const {
+    experience,
+    setExperience,
+    allExperiences,
+    isSubmitting,
+    isLoading,
+    addExperience,
+    deleteExperience,
+  } = useTalentExperience(user?.id);
 
   return (
     <main className="flex min-h-[calc(100vh_-_theme(spacing.16))] flex-1 flex-col gap-4 bg-muted/40 p-4 md:gap-8 md:p-10">
@@ -88,10 +35,7 @@ export default function TalentExperience() {
         <h1 className="text-3xl font-semibold">Settings</h1>
       </div>
       <div className="mx-auto grid w-full max-w-6xl items-start gap-6 md:grid-cols-[180px_1fr] lg:grid-cols-[250px_1fr]">
-        <nav
-          className="grid gap-4 text-sm text-muted-foreground"
-          x-chunk="dashboard-04-chunk-0"
-        >
+        <nav className="grid gap-4 text-sm text-muted-foreground">
           <Link href="#">General</Link>
           <Link href="#" className="font-semibold text-primary">
             Profil
@@ -102,7 +46,7 @@ export default function TalentExperience() {
           <Link href="#">Réseaux sociaux</Link>
         </nav>
         <div className="grid gap-6">
-          <Card x-chunk="dashboard-04-chunk-1">
+          <Card>
             <CardHeader>
               <CardTitle>Profil</CardTitle>
               <CardDescription>Modifier vos informations</CardDescription>
@@ -115,7 +59,6 @@ export default function TalentExperience() {
                     className="flex items-center justify-between mb-4"
                   >
                     <span>{allExperience.description}</span>
-
                     <Button
                       variant="destructive"
                       onClick={() => deleteExperience(allExperience._id)}
@@ -125,13 +68,12 @@ export default function TalentExperience() {
                   </li>
                 ))}
               </ul>
-
-              <form onSubmit={talentExperience}>
+              <form onSubmit={addExperience}>
                 <Textarea
                   type="text"
                   value={experience}
                   onChange={(e) => setExperience(e.target.value)}
-                  placeholder="Ajoutez votre expérience, le role,la date de début et de fin..."
+                  placeholder="Ajoutez votre expérience, le rôle, la date de début et de fin..."
                   className="mb-4"
                 />
                 {!isLoading && <Button type="submit">Save</Button>}
