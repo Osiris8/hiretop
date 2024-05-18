@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Image from "next/image";
 
 const JobCard = ({
   teamPhoto,
@@ -12,12 +13,20 @@ const JobCard = ({
 }) => {
   return (
     <div className="max-w-sm mx-auto bg-white rounded-xl shadow-md overflow-hidden">
-      <img className="w-full h-48 object-cover" src={teamPhoto} alt="Team" />
+      <Image
+        className="w-full h-48 object-cover"
+        src={teamPhoto}
+        alt="Team"
+        width={100}
+        height={100}
+      />
       <div className="p-6">
         <div className="flex items-center mb-4">
-          <img
+          <Image
             className="h-12 w-12 rounded-full"
             src={companyLogo}
+            width={100}
+            height={100}
             alt="Company Logo"
           />
           <div className="ml-4">
