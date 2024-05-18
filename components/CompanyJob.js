@@ -14,6 +14,14 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import CountrySelect from "./CountrySelect";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "./ui/textarea";
@@ -165,25 +173,23 @@ export default function CompanyJob() {
                 />
 
                 <Label htmlFor="jobContract">Contrat</Label>
-                <Input
-                  required={true}
-                  value={contract}
-                  onChange={(e) => setContract(e.target.value)}
-                  placeholder="Contrat"
-                  className="mb-8 mt-2"
-                  id="jobContract"
-                  type="text"
-                />
+                <Select value={contract} onValueChange={setContract}>
+                  <SelectTrigger className="w-[180px]">
+                    <SelectValue placeholder="Contrat" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="Remote">Télétravail</SelectItem>
+                    <SelectItem value="Onsite">Sur place</SelectItem>
+                    <SelectItem value="Freelance">Freelance</SelectItem>
+                    <SelectItem value="Hybrid">Hybride</SelectItem>
+                  </SelectContent>
+                </Select>
 
                 <Label htmlFor="jobCountry">Pays</Label>
-                <Input
-                  required={true}
-                  value={country}
-                  onChange={(e) => setCountry(e.target.value)}
-                  placeholder="Pays"
-                  className="mb-8 mt-2"
-                  id="jobCountry"
-                  type="text"
+
+                <CountrySelect
+                  countryChoice={country}
+                  setCountryChoice={setCountry}
                 />
 
                 <CardFooter className="border-t px-6 py-4">
