@@ -1,5 +1,3 @@
-// components/JobList.js
-
 import React, { useState, useEffect } from "react";
 import useFetchJobs from "../hooks/useFetchJobs";
 import JobCard from "./JobCard";
@@ -103,6 +101,7 @@ const JobList = () => {
         {filteredJobs.map((job) => (
           <JobCard
             key={job._id}
+            jobId={job._id}
             teamPhoto={job.mainImage}
             companyLogo={job.avatar}
             companyName={job.companyName}
