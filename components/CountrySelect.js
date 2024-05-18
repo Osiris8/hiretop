@@ -212,7 +212,7 @@ const CountrySelect = ({ countryChoice, setCountryChoice }) => (
     </SelectTrigger>
     <SelectContent>
       {countries.map((country) => (
-        <SelectItem key={country} value={country.toLowerCase()}>
+        <SelectItem key={country} value={country}>
           {country}
         </SelectItem>
       ))}
