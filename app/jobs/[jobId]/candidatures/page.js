@@ -1,4 +1,4 @@
-// app/jobs/[jobId]/candidatures/page.js
+// app/company/jobs/[jobId]/candidatures/page.js
 "use client";
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
@@ -101,7 +101,7 @@ const CandidatureActions = ({ candidatureId }) => {
   const [status, setStatus] = useState("");
   const [file, setFile] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const { edgestore } = useEdgeStore(); // Assurez-vous d'importer et d'initialiser edgestore correctement
+  const { edgestore } = useEdgeStore();
 
   const handleStatusChange = async () => {
     setIsSubmitting(true);
@@ -109,6 +109,9 @@ const CandidatureActions = ({ candidatureId }) => {
     try {
       const response = await fetch(`/api/candidature/${candidatureId}/status`, {
         method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify({ status }),
       });
 
@@ -139,6 +142,9 @@ const CandidatureActions = ({ candidatureId }) => {
           `/api/candidature/${candidatureId}/offer`,
           {
             method: "PATCH",
+            headers: {
+              "Content-Type": "application/json",
+            },
             body: JSON.stringify({ offerUrl: res.url }),
           }
         );
@@ -163,7 +169,7 @@ const CandidatureActions = ({ candidatureId }) => {
           htmlFor="status"
           className="block text-sm font-medium text-gray-700"
         >
-          Update Status
+          Mettre à jour le statut
         </label>
         <select
           id="status"
@@ -171,7 +177,7 @@ const CandidatureActions = ({ candidatureId }) => {
           onChange={(e) => setStatus(e.target.value)}
           className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
         >
-          <option value="">Select Status</option>
+          <option value="">Sélectionnez le statut</option>
           <option value="En cours">En cours</option>
           <option value="Rejetée">Rejetée</option>
           <option value="Offre envoyée">Offre envoyée</option>
@@ -181,7 +187,7 @@ const CandidatureActions = ({ candidatureId }) => {
           className="mt-2 bg-blue-500 text-white px-4 py-2 rounded"
           disabled={isSubmitting}
         >
-          {isSubmitting ? "Updating..." : "Update Status"}
+          {isSubmitting ? "Mise à jour..." : "Mettre à jour"}
         </button>
       </div>
 
@@ -206,7 +212,7 @@ const CandidatureActions = ({ candidatureId }) => {
             className="mt-2 bg-blue-500 text-white px-4 py-2 rounded"
             disabled={isSubmitting}
           >
-            {isSubmitting ? "Sending..." : "Send Offer"}
+            {isSubmitting ? "Envoi en cours..." : "Envoyer"}
           </button>
         </form>
       </div>
