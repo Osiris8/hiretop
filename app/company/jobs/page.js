@@ -55,7 +55,9 @@ const CompanyJobList = () => {
             <div
               key={job._id}
               className="bg-white shadow-md rounded-lg p-4 mb-4 cursor-pointer"
-              onClick={() => router.push(`/jobs/${job._id}/candidatures`)}
+              onClick={() =>
+                router.push(`/company/jobs/${job._id}/candidatures`)
+              }
             >
               <h2 className="text-2xl font-bold">{job.title}</h2>
               <p>{job.description}</p>

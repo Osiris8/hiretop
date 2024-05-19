@@ -14,7 +14,7 @@ const JobCard = ({
   publicationDate,
 }) => {
   return (
-    <Link href={`/jobs/${jobId}`}>
+    <Link href={`/talent-job-detail/${jobId}`}>
       <div className="max-w-sm mx-auto bg-white rounded-xl shadow-md overflow-hidden cursor-pointer">
         <Image
           className="w-full h-48 object-cover"

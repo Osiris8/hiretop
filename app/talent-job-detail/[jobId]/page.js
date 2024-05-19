@@ -85,7 +85,7 @@ const JobDetail = () => {
         });
 
         if (response.ok) {
-          router.push("/candidatures");
+          router.push("/talent-candidatures");
         } else {
           console.error("Failed to submit candidature");
         }
