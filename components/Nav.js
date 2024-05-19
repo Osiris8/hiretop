@@ -12,7 +12,7 @@ export default function Nav() {
       <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <div className="flex-1 md:flex md:items-center md:gap-12">
-            <a className="block text-slate-900" href="#">
+            <a className="block text-slate-900" href="">
               <span className="text-xl font-bold tracking-tight">HireTop</span>
             </a>
           </div>
@@ -23,18 +23,9 @@ export default function Nav() {
                 <li>
                   <a
                     className="py-2 text-sm font-medium text-black hover:text-black/50"
-                    href="#"
+                    href=""
                   >
                     Acceuil
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    className="py-2 text-sm font-medium text-black hover:text-black/50"
-                    href="#"
-                  >
-                    Jobs
                   </a>
                 </li>
 
@@ -101,7 +92,7 @@ export default function Nav() {
               <li>
                 <a
                   className="py-2 text-sm font-medium text-black hover:text-black/50"
-                  href="#"
+                  href=""
                 >
                   Acceuil
                 </a>
@@ -110,16 +101,7 @@ export default function Nav() {
               <li>
                 <a
                   className="py-2 text-sm font-medium text-black hover:text-black/50"
-                  href="#"
-                >
-                  Jobs
-                </a>
-              </li>
-
-              <li>
-                <a
-                  className="py-2 text-sm font-medium text-black hover:text-black/50"
-                  href="#"
+                  href="#companies"
                 >
                   Entreprise
                 </a>
@@ -128,12 +110,11 @@ export default function Nav() {
               <li>
                 <a
                   className="py-2 text-sm font-medium text-black hover:text-black/50"
-                  href="#"
+                  href="#talents"
                 >
                   Talents
                 </a>
               </li>
-              {/* Ajoutez les autres liens de navigation pour mobile ici */}
             </ul>
           </nav>
         )}
