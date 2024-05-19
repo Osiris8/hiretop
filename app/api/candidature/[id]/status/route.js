@@ -1,6 +1,6 @@
 // app/api/candidature/[id]/status/route.js
 import { connectToDB } from "@/utils/database";
-import Candidature from "@/models/Candidature";
+import Candidature from "../../../../../models/Candidature";
 import { NextResponse } from "next/server";
 
 export async function PATCH(request, { params }) {
