@@ -11,10 +11,12 @@ export const useCompanyProfil = (user) => {
   const [telephone, setTelephone] = useState("");
   const [country, setCountry] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const updateCompanyProfil = async (e, router) => {
+  const sendCompanyProfil = async (e, router) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setIsLoading(true);
     try {
       const response = await fetch("/api/company-profil", {
         method: "POST",
@@ -64,6 +66,7 @@ export const useCompanyProfil = (user) => {
     country,
     setCountry,
     isSubmitting,
-    updateCompanyProfil,
+    isLoading,
+    sendCompanyProfil,
   };
 };
