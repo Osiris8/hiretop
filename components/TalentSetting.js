@@ -66,6 +66,7 @@ export default function TalentDashboard() {
           <Link href="/talent-skill">Compétences</Link>
           <Link href="/talent-social-link">Réseaux sociaux</Link>
           <Link href="/talent-candidatures">Mes candidatures</Link>
+          <Link href="/talent-job">Jobs</Link>
         </nav>
         <div className="grid gap-6">
           <Card x-chunk="dashboard-04-chunk-1">
