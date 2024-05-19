@@ -19,7 +19,7 @@ export default function TalentProfil() {
     country,
     setCountry,
     isSubmitting,
-    updateTalentProfil,
+    sendTalentProfil,
   } = useTalentProfil(user);
 
   return (
@@ -36,7 +36,7 @@ export default function TalentProfil() {
                 Démarquez-vous et boostez votre carrière avec notre plateforme.
               </p>
             </div>
-            <form onSubmit={(e) => updateTalentProfil(e, router)}>
+            <form onSubmit={(e) => sendTalentProfil(e, router)}>
               <div className="space-y-3">
                 <div>
                   <label

@@ -5,9 +5,7 @@ import { LoginLink } from "@kinde-oss/kinde-auth-nextjs/components";
 import Tabs from "@/components/Tabs";
 
 export default function Profile() {
-  const { isAuthenticated, isLoading } = useKindeBrowserClient();
-
-  if (isLoading) return <div>Loading...</div>;
+  const { isAuthenticated } = useKindeBrowserClient();
 
   return isAuthenticated ? (
     <div>

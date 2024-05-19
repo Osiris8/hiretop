@@ -10,7 +10,7 @@ export const useTalentProfil = (user) => {
   const [country, setCountry] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const updateTalentProfil = async (e, router) => {
+  const sendTalentProfil = async (e, router) => {
     e.preventDefault();
     setIsSubmitting(true);
     try {
@@ -56,6 +56,6 @@ export const useTalentProfil = (user) => {
     country,
     setCountry,
     isSubmitting,
-    updateTalentProfil,
+    sendTalentProfil,
   };
 };
