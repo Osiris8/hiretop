@@ -57,14 +57,15 @@ export default function TalentDashboard() {
           className="grid gap-4 text-sm text-muted-foreground"
           x-chunk="dashboard-04-chunk-0"
         >
-          <Link href="#" className="font-semibold text-primary">
+          <Link href="/talent-setting" className="font-semibold text-primary">
             General
           </Link>
-          <Link href="#">Profil</Link>
-          <Link href="#">Avatar</Link>
-          <Link href="#">Expériences</Link>
-          <Link href="#">Compétences</Link>
-          <Link href="#">Réseaux sociaux</Link>
+          <Link href="/talent-next-profil">Mes choix</Link>
+          <Link href="/talent-avatar">Avatar</Link>
+          <Link href="/talent-experience">Expériences</Link>
+          <Link href="/talent-skill">Compétences</Link>
+          <Link href="/talent-social-link">Réseaux sociaux</Link>
+          <Link href="/talent-candidatures">Mes candidatures</Link>
         </nav>
         <div className="grid gap-6">
           <Card x-chunk="dashboard-04-chunk-1">
