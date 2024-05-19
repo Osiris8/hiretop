@@ -1,4 +1,3 @@
-// models/Candidature.js
 import { Schema, model, models } from "mongoose";
 
 const CandidatureSchema = new Schema({
@@ -16,7 +15,16 @@ const CandidatureSchema = new Schema({
   },
   status: {
     type: String,
-    default: "Submitted", // Submitted, In Review, Accepted, Rejected
+    enum: ["En attente", "En cours", "Rejetée", "Offre envoyée"],
+    default: "En attente",
+  },
+  interviewDate: {
+    type: Date,
+    default: null,
+  },
+  offerUrl: {
+    type: String,
+    default: null,
   },
   createdAt: {
     type: Date,
