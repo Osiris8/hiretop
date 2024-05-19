@@ -2,10 +2,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import HeroImage from "../public/images/hero1.png";
-import {
-  RegisterLink,
-  LoginLink,
-} from "@kinde-oss/kinde-auth-nextjs/components";
+import { RegisterLink } from "@kinde-oss/kinde-auth-nextjs/components";
 
 function Hero() {
   return (

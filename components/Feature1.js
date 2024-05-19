@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
-import feature1 from "../public/images/feature/feature1.png";
 import talent from "../public/images/feature/talent.jpg";
+import { RegisterLink } from "@kinde-oss/kinde-auth-nextjs/components";
 export default function Feature1() {
   return (
     <section className="bg-white" id="talents">
@@ -27,7 +27,7 @@ export default function Feature1() {
                 class="inline-flex items-center justify-center w-full h-12 gap-3 px-5 py-3 font-medium text-white duration-200 bg-gray-900 md:w-auto rounded-xl hover:bg-gray-700 focus:ring-2 focus:ring-offset-2 focus:ring-black"
                 aria-label="Primary action"
               >
-                Je me lance
+                <RegisterLink> Je me lance</RegisterLink>
               </button>
             </div>
           </div>
