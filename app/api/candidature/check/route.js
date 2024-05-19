@@ -1,6 +1,6 @@
 // app/api/candidature/check/route.js
 import { connectToDB } from "@/utils/database";
-import Candidature from "@/models/Candidature";
+import Candidature from "@/models/candidature";
 import { NextResponse } from "next/server";
 
 export async function GET(request) {
