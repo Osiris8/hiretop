@@ -19,6 +19,7 @@ export default function TalentProfil() {
     country,
     setCountry,
     isSubmitting,
+    isLoading,
     sendTalentProfil,
   } = useTalentProfil(user);
 
@@ -107,13 +108,23 @@ export default function TalentProfil() {
                   />
                 </div>
                 <div className="col-span-full">
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="inline-flex items-center justify-center w-full h-12 gap-3 px-5 py-3 font-medium text-white duration-200 bg-gray-900 rounded-xl hover:bg-gray-700 focus:ring-2 focus:ring-offset-2 focus:ring-black"
-                  >
-                    Go to Dashboard
-                  </button>
+                  {!isLoading && (
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="inline-flex items-center justify-center w-full h-12 gap-3 px-5 py-3 font-medium text-white duration-200 bg-gray-900 rounded-xl hover:bg-gray-700 focus:ring-2 focus:ring-offset-2 focus:ring-black"
+                    >
+                      Go to Dashboard
+                    </button>
+                  )}
+                  {isLoading && (
+                    <button
+                      disabled={isLoading}
+                      className="inline-flex items-center justify-center w-full h-12 gap-3 px-5 py-3 font-medium text-white duration-200 bg-gray-500 rounded-xl hover:bg-gray-700 focus:ring-2 focus:ring-offset-2 focus:ring-black"
+                    >
+                      Veuillez patienter
+                    </button>
+                  )}
                 </div>
               </div>
             </form>

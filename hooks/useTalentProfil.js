@@ -9,10 +9,12 @@ export const useTalentProfil = (user) => {
   const [telephone, setTelephone] = useState("");
   const [country, setCountry] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const sendTalentProfil = async (e, router) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setIsLoading(true);
     try {
       const response = await fetch("/api/talent-profil", {
         method: "POST",
@@ -56,6 +58,7 @@ export const useTalentProfil = (user) => {
     country,
     setCountry,
     isSubmitting,
+    isLoading,
     sendTalentProfil,
   };
 };
