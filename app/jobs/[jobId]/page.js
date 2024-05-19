@@ -1,12 +1,22 @@
 "use client";
+import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
+import { LoginLink } from "@kinde-oss/kinde-auth-nextjs/components";
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { useEdgeStore } from "../../../lib/edgestore";
 
 const JobDetail = () => {
+  const { isAuthenticated, user } = useKindeBrowserClient();
   const { jobId } = useParams();
   const [job, setJob] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [file, setFile] = useState(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const { edgestore } = useEdgeStore();
 
   useEffect(() => {
     if (jobId) {
@@ -29,6 +39,45 @@ const JobDetail = () => {
     }
   }, [jobId]);
 
+  const handleFileChange = (e) => {
+    setFile(e.target.files[0]);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!file || !user) return;
+
+    setIsLoading(true);
+    setIsSubmitting(true);
+
+    try {
+      const { url } = await edgestore.publicFiles.upload({
+        file,
+      });
+
+      const response = await fetch(`/api/candidature`, {
+        method: "POST",
+        body: JSON.stringify({
+          userId: user.id,
+          jobId,
+          cvUrl: url,
+        }),
+      });
+
+      if (response.ok) {
+        console.log("Candidature submitted successfully");
+      } else {
+        console.error("Failed to submit candidature");
+      }
+    } catch (error) {
+      console.error("Error uploading file:", error);
+    } finally {
+      setIsLoading(false);
+      setIsSubmitting(false);
+    }
+  };
+
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -41,7 +90,7 @@ const JobDetail = () => {
     return <div>No job found</div>;
   }
 
-  return (
+  return isAuthenticated ? (
     <div className="p-6 max-w-4xl mx-auto">
       <h1 className="text-3xl font-bold mb-4">{job.title}</h1>
       <img
@@ -113,6 +162,21 @@ const JobDetail = () => {
           </ul>
         </div>
       </div>
+      <form onSubmit={handleSubmit}>
+        <Input
+          className="mb-4"
+          type="file"
+          required
+          accept=".pdf, .doc, .docx"
+          onChange={handleFileChange}
+        />
+        {!isLoading && <Button type="submit">Submit CV</Button>}
+        {isLoading && <Button disabled={isLoading}>Loading</Button>}
+      </form>
+    </div>
+  ) : (
+    <div>
+      You have to <LoginLink>Login</LoginLink> to see this page
     </div>
   );
 };
