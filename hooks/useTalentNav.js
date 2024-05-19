@@ -25,10 +25,10 @@ export const useTalentNav = (user) => {
         try {
           const response = await fetch(`/api/talent-avatar/${user.id}`);
           const data = await response.json();
-          if (response.ok && data[0]?.avatar) {
+          if (data && data.length > 0 && data[0].avatar) {
             setProfilImageUrl(data[0].avatar);
           } else {
-            setProfilImageUrl("/default-avatar.png"); // Image de secours
+            console.log("No avatar data available");
           }
         } catch (error) {
           console.error("Error fetching talent avatar:", error);

@@ -42,10 +42,6 @@ export default function CompanyNav() {
         const data = await response.json();
         if (data && data.length > 0 && data[0].avatar) {
           setProfilImageUrl(data[0].avatar);
-          console.log(data);
-
-          console.log(data[0].avatar);
-          setProfilImageUrl(data[0].avatar);
         } else {
           console.log("No avatar data available");
         }
