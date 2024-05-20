@@ -95,8 +95,8 @@ export default function TalentNav() {
                   src={profilImageUrl}
                   alt="Avatar"
                   className="h-8 w-8 rounded-full"
-                  width={32}
-                  height={32}
+                  width={64}
+                  height={64}
                 />
               ) : (
                 <CircleUser className="h-5 w-5" />
