@@ -1,6 +1,7 @@
 "use client";
 
 import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
+import { LogoutLink } from "@kinde-oss/kinde-auth-nextjs";
 import Link from "next/link";
 import { CircleUser, Menu, Package2, Search } from "lucide-react";
 import {
@@ -57,26 +58,26 @@ export default function CompanyNav() {
     <header className="flex h-16 items-center gap-4 border-b bg-background px-4 md:px-6">
       <nav className="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6">
         <Link
-          href="#"
+          href="/company-dashboard"
           className="flex items-center gap-2 text-lg font-semibold md:text-base"
         >
           HireTop
         </Link>
         <Link
-          href="#"
+          href="/company-dashboard"
           className="text-muted-foreground transition-colors hover:text-foreground"
         >
           Dashboard
         </Link>
         <Link
-          href="#"
+          href="/company/jobs"
           className="text-muted-foreground transition-colors hover:text-foreground"
         >
           Jobs
         </Link>
 
         <Link
-          href="#"
+          href="/company-setting"
           className="text-foreground transition-colors hover:text-foreground"
         >
           Settings
@@ -92,25 +93,25 @@ export default function CompanyNav() {
         <SheetContent side="left">
           <nav className="grid gap-6 text-lg font-medium">
             <Link
-              href="#"
+              href="/company-dashboard"
               className="flex items-center gap-2 text-lg font-semibold"
             >
               HireTop
             </Link>
             <Link
-              href="#"
+              href="/company-dashboard"
               className="text-muted-foreground hover:text-foreground"
             >
               Dashboard
             </Link>
             <Link
-              href="#"
+              href="/company/jobs"
               className="text-muted-foreground hover:text-foreground"
             >
               Jobs
             </Link>
 
-            <Link href="#" className="hover:text-foreground">
+            <Link href="/company-setting" className="hover:text-foreground">
               Settings
             </Link>
           </nav>
@@ -139,10 +140,16 @@ export default function CompanyNav() {
             <DropdownMenuLabel>My Account</DropdownMenuLabel>
             <DropdownMenuItem>{userCompany[0]?.company}</DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>Settings</DropdownMenuItem>
-
+            <DropdownMenuItem>
+              <Link href="/company-dashboard">Profile</Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem>
+              <Link href="/company-setting">Paramètres</Link>
+            </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>Logout</DropdownMenuItem>
+            <DropdownMenuItem>
+              <LogoutLink>Se deconnecter</LogoutLink>
+            </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       </div>

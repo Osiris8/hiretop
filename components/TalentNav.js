@@ -112,7 +112,7 @@ export default function TalentNav() {
             </DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem>
-              <Link href={"/talent-setting"}>Settings</Link>
+              <Link href={"/talent-setting"}>Paramètres</Link>
             </DropdownMenuItem>
             <DropdownMenuItem>
               <Link href={"/talent-dashboard"}>Profile</Link>

@@ -2,13 +2,13 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
+import { LoginLink } from "@kinde-oss/kinde-auth-nextjs";
 import { useRouter } from "next/navigation";
 
 const CompanyJobList = () => {
-  const { user } = useKindeBrowserClient();
+  const { user, isAuthenticated } = useKindeBrowserClient();
   const [jobs, setJobs] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -25,7 +25,7 @@ const CompanyJobList = () => {
         const data = await response.json();
         setJobs(data);
       } catch (error) {
-        setError(error.message);
+        console.error(error);
       } finally {
         setLoading(false);
       }
@@ -36,15 +36,7 @@ const CompanyJobList = () => {
     }
   }, [user]);
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
-
-  return (
+  return isAuthenticated ? (
     <div className="p-6 max-w-4xl mx-auto">
       <h1 className="text-3xl font-bold mb-4">Mes Offres d&emploi</h1>
       {jobs.length === 0 ? (
@@ -67,6 +59,10 @@ const CompanyJobList = () => {
           ))}
         </div>
       )}
+    </div>
+  ) : (
+    <div>
+      You have to <LoginLink>Login</LoginLink> to see this page
     </div>
   );
 };
