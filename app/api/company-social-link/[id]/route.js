@@ -2,7 +2,7 @@ import CompanySocial from "@/models/companySocial";
 import { connectToDB } from "@/utils/database";
 export const PATCH = async (request, { params }) => {
   try {
-    await connectToDB(); // Assurez-vous que cette fonction est correctement définie pour établir une connexion à la base de données
+    await connectToDB();
     const {
       facebook,
       github,
@@ -33,7 +33,6 @@ export const PATCH = async (request, { params }) => {
         other: other,
       });
     } else {
-      // Mettre à jour le profil existant
       companySocialLink.facebook = facebook;
       companySocialLink.github = github;
       companySocialLink.twitter = twitter;
@@ -45,7 +44,6 @@ export const PATCH = async (request, { params }) => {
       companySocialLink.other = other;
     }
 
-    // Sauvegarder le nouveau profil ou les modifications
     await companySocialLink.save();
 
     return new Response(JSON.stringify(companySocialLink), {

@@ -71,15 +71,17 @@ function ProfileCard() {
               <Image
                 src={profilImageUrl}
                 alt="Avatar"
-                className="h-8 w-8 rounded-full"
-                width={32}
-                height={32}
+                className="h-48 w-48 object-cover md:w-48"
+                width={150}
+                height={150}
               />
             ) : (
               <Image
-                className="h-48 w-full object-cover md:w-48"
+                className="h-48 w-48 object-cover md:w-48"
                 src="https://via.placeholder.com/150"
                 alt="Profile"
+                width={150}
+                height={150}
               />
             )}
           </div>
@@ -93,6 +95,8 @@ function ProfileCard() {
             <p className="mt-2 text-gray-500">
               {bio ? bio : "Aucune biographie"}
             </p>
+            <p className="mt-2 text-gray-500">{city ? city : ""}</p>
+            <p className="mt-2 text-gray-500">{country ? country : ""}</p>
           </div>
         </div>
       </div>

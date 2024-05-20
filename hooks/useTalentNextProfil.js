@@ -23,7 +23,7 @@ export const useTalentNextProfil = (userId) => {
           throw new Error("Failed to fetch profile");
         }
         const data = await response.json();
-        const profile = data[0]; // Assumant qu'il y a un seul profil dans le tableau
+        const profile = data[0];
 
         setLevel(profile.level);
         setRemote(profile.remote);

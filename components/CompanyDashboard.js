@@ -47,9 +47,9 @@ export default function CompanyDashboard() {
               <Image
                 src={companyAvatar[0].avatar}
                 alt="Avatar"
-                className="h-48 w-full object-cover md:w-48"
-                width={192}
-                height={192}
+                className="h-full w-full object-cover md:w-48"
+                width={150}
+                height={150}
               />
             ) : (
               <Image

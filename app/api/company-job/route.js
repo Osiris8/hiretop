@@ -43,18 +43,17 @@ export const POST = async (request) => {
 
 export const GET = async (request) => {
   try {
-    await connectToDB(); // Connexion à la base de données
+    await connectToDB();
 
-    const allJobs = await CompanyJob.find({}); // Récupération de tous les jobs
+    const allJobs = await CompanyJob.find({});
     console.log("All jobs:", allJobs);
 
-    // Pour chaque job, récupérer les informations de l'avatar et du nom de la compagnie
     const jobsWithCompanyInfo = await Promise.all(
       allJobs.map(async (job) => {
         const companyAvatar = await CompanyAvatar.findOne({
           userId: job.userId,
         }); // Rechercher par userId pour l'avatar
-        const companyName = await Company.findOne({ userId: job.userId }); // Rechercher par userId pour le nom
+        const companyName = await Company.findOne({ userId: job.userId });
         const companyAbout = await CompanyAbout.findOne({ userId: job.userId });
         const companySocial = await CompanySocial.findOne({
           userId: job.userId,
@@ -74,21 +73,19 @@ export const GET = async (request) => {
           locale: fr,
         });
 
-        // Retourner un nouvel objet job avec les données du job, l'avatar et le nom de la compagnie
         return {
-          ...job._doc, // Inclure toutes les propriétés du document job
-          avatar: companyAvatar ? companyAvatar.avatar : null, // Ajouter la propriété avatar
-          companyName: companyName ? companyName.company : null, // Ajouter la propriété companyName
+          ...job._doc,
+          avatar: companyAvatar ? companyAvatar.avatar : null,
+          companyName: companyName ? companyName.company : null,
           companyAbout: companyAbout ? companyAbout.companyAbout : null,
           companySocial: companySocial ? companySocial.companySocial : null,
-          publicationDate: `publié ${formattedDate}`, // Ajouter la date formatée
+          publicationDate: `publié ${formattedDate}`,
         };
       })
     );
 
     console.log("Jobs with company info:", jobsWithCompanyInfo);
 
-    // Retourner la réponse avec les jobs et les informations des compagnies
     return new Response(JSON.stringify(jobsWithCompanyInfo), { status: 200 });
   } catch (error) {
     console.error("Error fetching jobs:", error);

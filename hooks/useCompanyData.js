@@ -16,7 +16,6 @@ export const useCompanyData = (userId) => {
         }
         const data = await response.json();
         setCompanyData(data);
-        console.log(data);
       } catch (error) {
         setError(error.message);
       } finally {

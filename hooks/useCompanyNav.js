@@ -11,7 +11,7 @@ export const useUserCompany = (userId, user) => {
       if (user && user.id) {
         const response = await fetch(`/api/company-profil/${userId}`);
         const data = await response.json();
-        console.log(data);
+
         setUserCompany(data);
       } else {
         console.log("User not logged in or user data not loaded");

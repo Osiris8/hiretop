@@ -3,25 +3,16 @@
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
-import { useEdgeStore } from "@/lib/edgestore";
-import { useRouter } from "next/navigation";
-import TalentNav from "@/components/TalentNav";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
+import CompanyNav from "@/components/CompanyNav";
+import Image from "next/image";
 
 const JobDetail = () => {
   const { jobId } = useParams();
   const { user } = useKindeBrowserClient();
-  const { edgestore } = useEdgeStore();
-  const router = useRouter();
 
   const [job, setJob] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [file, setFile] = useState(null);
-  const [cvUrl, setCvUrl] = useState("");
-  const [candidatureExists, setCandidatureExists] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     const fetchJob = async () => {
@@ -50,13 +41,15 @@ const JobDetail = () => {
 
   return (
     <div className="flex min-h-screen w-full flex-col">
-      <TalentNav />
+      <CompanyNav />
       <div className="p-6 max-w-4xl mx-auto">
         <h1 className="text-3xl font-bold mb-4">{job.title}</h1>
-        <img
+        <Image
           className="w-full h-48 object-cover mb-4 rounded-lg"
           src={job.mainImage}
           alt="Team"
+          width={500}
+          height={500}
         />
         <p className="text-lg mb-4">
           <strong>Description : </strong>

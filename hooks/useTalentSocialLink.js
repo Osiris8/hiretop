@@ -18,9 +18,7 @@ export const useTalentSocialLink = (userId) => {
 
         const data = await response.json();
 
-        // Vérifiez que les données existent et qu'elles ont les propriétés attendues
         if (data) {
-          console.log(data);
           setFacebook(data.facebook || "");
           setGithub(data.github || "");
           setTwitter(data.twitter || "");
@@ -53,7 +51,6 @@ export const useTalentSocialLink = (userId) => {
       });
       if (response.ok) {
         setLoadingButton(false);
-        console.log(response);
       }
     } catch (error) {
       console.error(error);

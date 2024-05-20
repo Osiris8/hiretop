@@ -13,7 +13,11 @@ export default function Profile() {
     </div>
   ) : (
     <div>
-      You have to <LoginLink>Login</LoginLink> to see this page
+      Veuillez patienter... Vous serez redirigé. Si la redirection ne marche
+      pas, cliquez sur ce lien :
+      <LoginLink>
+        <span className="underline"> Login</span>
+      </LoginLink>
     </div>
   );
 }
