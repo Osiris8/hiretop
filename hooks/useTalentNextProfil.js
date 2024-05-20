@@ -1,7 +1,7 @@
 // hooks/useTalentNextProfil.js
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export const useTalentNextProfil = (userId) => {
   const [level, setLevel] = useState("");
@@ -14,6 +14,36 @@ export const useTalentNextProfil = (userId) => {
   const [city, setCity] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    const fetchProfile = async () => {
+      try {
+        const response = await fetch(`/api/talent-next-profil/${userId}`);
+        if (!response.ok) {
+          throw new Error("Failed to fetch profile");
+        }
+        const data = await response.json();
+        const profile = data[0]; // Assumant qu'il y a un seul profil dans le tableau
+
+        setLevel(profile.level);
+        setRemote(profile.remote);
+        setFreelance(profile.freelance);
+        setOnsite(profile.onsite);
+        setAvailable(profile.available);
+        setBio(profile.bio);
+        setCountry(profile.country);
+        setCity(profile.city);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setIsLoading(false); // Mise à jour de l'état de chargement
+      }
+    };
+
+    if (userId) {
+      fetchProfile();
+    }
+  }, [userId]);
 
   const updateTalentNextProfil = async (e) => {
     e.preventDefault();

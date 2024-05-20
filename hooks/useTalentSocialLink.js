@@ -1,7 +1,7 @@
 // hooks/useTalentSocialLink.js
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export const useTalentSocialLink = (userId) => {
   const [facebook, setFacebook] = useState("");
@@ -11,6 +11,32 @@ export const useTalentSocialLink = (userId) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [loadingButton, setLoadingButton] = useState(false);
 
+  useEffect(() => {
+    const fetchSocialLinks = async () => {
+      try {
+        const response = await fetch(`/api/talent-social-link/${userId}`);
+
+        const data = await response.json();
+
+        // Vérifiez que les données existent et qu'elles ont les propriétés attendues
+        if (data) {
+          console.log(data);
+          setFacebook(data.facebook || "");
+          setGithub(data.github || "");
+          setTwitter(data.twitter || "");
+          setLinkedin(data.linkedin || "");
+        }
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setLoadingButton(false);
+      }
+    };
+
+    if (userId) {
+      fetchSocialLinks();
+    }
+  }, [userId]);
   const updateTalentSocialLink = async (e) => {
     e.preventDefault();
     setLoadingButton(true);

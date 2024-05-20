@@ -43,3 +43,34 @@ export const PATCH = async (request, { params }) => {
     });
   }
 };
+
+export const GET = async (request, { params }) => {
+  try {
+    await connectToDB();
+
+    const socialLinks = await TalentSocial.findOne({ userId: params.id });
+
+    if (!socialLinks) {
+      return new Response(JSON.stringify({ error: "Social links not found" }), {
+        status: 404,
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+    }
+
+    return new Response(JSON.stringify(socialLinks), {
+      status: 200,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  } catch (error) {
+    return new Response(JSON.stringify({ error: "Failed to fetch data" }), {
+      status: 500,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  }
+};
