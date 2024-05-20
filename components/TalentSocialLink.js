@@ -40,15 +40,23 @@ export default function TalentSocialLink() {
         <h1 className="text-3xl font-semibold">Settings</h1>
       </div>
       <div className="mx-auto grid w-full max-w-6xl items-start gap-6 md:grid-cols-[180px_1fr] lg:grid-cols-[250px_1fr]">
-        <nav className="grid gap-4 text-sm text-muted-foreground">
-          <Link href="#" className="font-semibold text-primary">
-            General
+        <nav
+          className="grid gap-4 text-sm text-muted-foreground"
+          x-chunk="dashboard-04-chunk-0"
+        >
+          <Link href="/talent-setting">General</Link>
+          <Link href="/talent-next-profil">Mes choix</Link>
+          <Link href="/talent-avatar">Avatar</Link>
+          <Link href="/talent-experience">Expériences</Link>
+          <Link href="/talent-skill">Compétences</Link>
+          <Link
+            href="/talent-social-link"
+            className="font-semibold text-primary"
+          >
+            Réseaux sociaux
           </Link>
-          <Link href="#">Profil</Link>
-          <Link href="#">Avatar</Link>
-          <Link href="#">Expériences</Link>
-          <Link href="#">Compétences</Link>
-          <Link href="#">Réseaux sociaux</Link>
+          <Link href="/talent-candidatures">Mes candidatures</Link>
+          <Link href="/talent-job">Jobs</Link>
         </nav>
         <div className="grid gap-6">
           <Card>
