@@ -62,14 +62,14 @@ export default function CompanyJobOffer() {
           <Link href="/company-avatar">Avatar</Link>
           <Link href="/company-job">Posté un job</Link>
           <Link href="/company/jobs" className="font-semibold text-primary">
-            Proposition reçues
+            Propositions reçues
           </Link>
           <Link href="/company-social-link">Réseaux sociaux</Link>
         </nav>
         <div className="grid gap-6">
           <Card x-chunk="dashboard-04-chunk-1">
             <CardHeader>
-              <CardTitle>Proposition reçues</CardTitle>
+              <CardTitle>Propositions reçues</CardTitle>
               <CardDescription>
                 Cliquez sur les jobs que vous avez posté pour voir les
                 propositions des différents talents.
