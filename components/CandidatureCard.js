@@ -17,6 +17,23 @@ const CandidatureCard = ({ candidature }) => {
       <p>
         <strong>Status:</strong> {candidature.status}
       </p>
+      {candidature.status === "Offre envoyée" && (
+        <p>
+          <strong>Offre envoyée:</strong>{" "}
+          {candidature.offerUrl ? (
+            <a
+              href={candidature.offerUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-500 font-semibold"
+            >
+              Voir l&apos;offre
+            </a>
+          ) : (
+            "Non"
+          )}
+        </p>
+      )}
       <p>
         <strong>Date de candidature:</strong>{" "}
         {new Date(candidature.createdAt).toLocaleDateString()}

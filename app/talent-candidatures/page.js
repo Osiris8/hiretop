@@ -11,11 +11,12 @@ import {
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
+import { LoginLink } from "@kinde-oss/kinde-auth-nextjs/components";
 import TalentNav from "@/components/TalentNav";
 import CandidatureCard from "@/components/CandidatureCard";
 
 const CandidatureList = () => {
-  const { user } = useKindeBrowserClient();
+  const { user, isLoading, isAuthenticated } = useKindeBrowserClient();
   const [candidatures, setCandidatures] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -45,7 +46,7 @@ const CandidatureList = () => {
     fetchCandidatures();
   }, [user]);
 
-  if (loading) {
+  if (isLoading) {
     return <div>Loading...</div>;
   }
 
@@ -53,7 +54,7 @@ const CandidatureList = () => {
     return <div>Error: {error}</div>;
   }
 
-  return (
+  return isAuthenticated ? (
     <div>
       <TalentNav />
 
@@ -103,6 +104,14 @@ const CandidatureList = () => {
           </div>
         </div>
       </main>
+    </div>
+  ) : (
+    <div>
+      Veuillez patienter... Vous serez redirigé. Si la redirection ne marche
+      pas, cliquez sur ce lien :
+      <LoginLink>
+        <span className="underline"> Login</span>
+      </LoginLink>
     </div>
   );
 };
