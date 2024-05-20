@@ -104,7 +104,8 @@ export default function CompanyJob() {
           <Link href="/company-job" className="font-semibold">
             Posté un job
           </Link>
-          <Link href="/company/jobs">Offres reçues</Link>
+          <Link href="/company/jobs">Propositions reçues</Link>
+          <Link href="/company-all-job">Explorer des jobs</Link>
           <Link href="/company-social-link">Réseaux sociaux</Link>
         </nav>
         <div className="grid gap-6">

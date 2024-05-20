@@ -4,7 +4,7 @@ import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 import { LoginLink } from "@kinde-oss/kinde-auth-nextjs/components";
 
 import CompanyNav from "../../components/CompanyNav";
-import JobList from "../../components/JobList";
+import CompanyJobList from "../../components/CompanyJobList";
 export default function CompanyAllJob() {
   const { isAuthenticated, isLoading } = useKindeBrowserClient();
   if (isLoading) return <div>Loading...</div>;
@@ -13,7 +13,7 @@ export default function CompanyAllJob() {
     <div className="flex min-h-screen w-full flex-col">
       <CompanyNav />
 
-      <JobList />
+      <CompanyJobList />
     </div>
   ) : (
     <div>

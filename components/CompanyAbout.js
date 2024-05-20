@@ -57,7 +57,8 @@ export default function CompanyAbout() {
           </Link>
           <Link href="/company-avatar">Avatar</Link>
           <Link href="/company-job">Posté un job</Link>
-          <Link href="/company/jobs">Offres reçues</Link>
+          <Link href="/company/jobs">Propositions reçues</Link>
+          <Link href="/company-all-job">Explorer des Jobs</Link>
           <Link href="/company-social-link">Réseaux sociaux</Link>
         </nav>
         <div className="grid gap-6">

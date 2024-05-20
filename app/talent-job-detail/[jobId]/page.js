@@ -39,10 +39,69 @@ const JobDetail = () => {
       }
     };
 
+    const checkCandidature = async () => {
+      if (user && jobId) {
+        try {
+          const response = await fetch(`/api/candidature/check`, {
+            headers: {
+              "user-id": user.id,
+              "job-id": jobId,
+            },
+          });
+          if (!response.ok) {
+            throw new Error("Failed to check candidature");
+          }
+          const data = await response.json();
+          setCandidatureExists(data.exists);
+        } catch (error) {
+          console.error(error);
+        }
+      }
+    };
+
     if (jobId) {
       fetchJob();
+      checkCandidature();
     }
   }, [jobId, user]);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (file) {
+      setIsSubmitting(true);
+
+      try {
+        const res = await edgestore.publicFiles.upload({
+          file,
+        });
+
+        setCvUrl(res.url);
+
+        const response = await fetch(`/api/candidature`, {
+          method: "POST",
+          body: JSON.stringify({
+            userId: user.id,
+            jobId: jobId,
+            cvUrl: res.url,
+          }),
+        });
+
+        if (response.ok) {
+          alert(
+            "Candidature envoyée avec succès. Vous serez rédirigé vers la page de vos candidatures."
+          );
+          router.push("/talent-candidatures");
+        } else {
+          console.error("Failed to submit candidature");
+        }
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setIsSubmitting(false);
+      }
+    }
+  };
 
   if (!job) {
     return <div>Loading...</div>;
@@ -80,6 +139,32 @@ const JobDetail = () => {
         <p className="text-lg mb-4">
           <strong>Information sur l&#39;entreprise :</strong> {job.company}
         </p>
+
+        {candidatureExists ? (
+          <p className="text-red-500">Vous avez déjà postulé pour ce poste.</p>
+        ) : (
+          <div>
+            <p className="text-lg mb-4">
+              <strong>Envoyer votre CV</strong>
+            </p>
+            <form onSubmit={handleSubmit}>
+              <Input
+                type="file"
+                required
+                accept=".pdf,.doc,.docx"
+                onChange={(e) => setFile(e.target.files?.[0] ?? null)}
+                className="mb-4"
+              />
+              <Button
+                type="submit"
+                className="bg-slate-900 text-white px-4 py-2 rounded"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? "Envoi en cours..." : "Postuler"}
+              </Button>
+            </form>
+          </div>
+        )}
       </div>
     </div>
   );

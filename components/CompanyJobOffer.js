@@ -64,6 +64,7 @@ export default function CompanyJobOffer() {
           <Link href="/company/jobs" className="font-semibold text-primary">
             Propositions reçues
           </Link>
+          <Link href="/company-all-job">Explorer des jobs</Link>
           <Link href="/company-social-link">Réseaux sociaux</Link>
         </nav>
         <div className="grid gap-6">

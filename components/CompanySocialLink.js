@@ -72,7 +72,8 @@ export default function CompanySocialLink() {
           <Link href="/company-about">Présentation</Link>
           <Link href="/company-avatar">Avatar</Link>
           <Link href="/company-job">Posté un job</Link>
-          <Link href="/company/jobs">Offres reçues</Link>
+          <Link href="/company/jobs">Propositions reçues</Link>
+          <Link href="/company-all-job">Explorer les jobs</Link>
           <Link
             href="/company-social-link"
             className="font-semibold text-primary"
