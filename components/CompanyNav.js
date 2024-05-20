@@ -70,17 +70,24 @@ export default function CompanyNav() {
           Dashboard
         </Link>
         <Link
-          href="/company/jobs"
+          href="/company-job"
           className="text-muted-foreground transition-colors hover:text-foreground"
         >
           Jobs
         </Link>
 
         <Link
+          href="/company/jobs"
+          className="text-muted-foreground transition-colors hover:text-foreground"
+        >
+          Offres
+        </Link>
+
+        <Link
           href="/company-setting"
           className="text-foreground transition-colors hover:text-foreground"
         >
-          Settings
+          Paramètres
         </Link>
       </nav>
       <Sheet>
@@ -105,14 +112,20 @@ export default function CompanyNav() {
               Dashboard
             </Link>
             <Link
-              href="/company/jobs"
+              href="/company-job"
               className="text-muted-foreground hover:text-foreground"
             >
               Jobs
             </Link>
+            <Link
+              href="/company/jobs"
+              className="text-muted-foreground hover:text-foreground"
+            >
+              Offres
+            </Link>
 
             <Link href="/company-setting" className="hover:text-foreground">
-              Settings
+              Paramètres
             </Link>
           </nav>
         </SheetContent>

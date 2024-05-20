@@ -98,14 +98,14 @@ export default function CompanyJob() {
           className="grid gap-4 text-sm text-muted-foreground"
           x-chunk="dashboard-04-chunk-0"
         >
-          <Link href="#" className="font-semibold text-primary">
-            General
+          <Link href="/company-setting">General</Link>
+          <Link href="/company-about">Présentation</Link>
+          <Link href="/company-avatar">Avatar</Link>
+          <Link href="/company-job" className="font-semibold">
+            Posté un job
           </Link>
-          <Link href="#">Présentation</Link>
-          <Link href="#">Equipes</Link>
-          <Link href="#">Technologies</Link>
-          <Link href="#">Galerie</Link>
-          <Link href="#">Réseaux sociaux</Link>
+          <Link href="/company/jobs">Offres reçues</Link>
+          <Link href="/company-social-link">Réseaux sociaux</Link>
         </nav>
         <div className="grid gap-6">
           <Card x-chunk="dashboard-04-chunk-1">

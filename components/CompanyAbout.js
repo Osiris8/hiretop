@@ -51,14 +51,14 @@ export default function CompanyAbout() {
           className="grid gap-4 text-sm text-muted-foreground"
           x-chunk="dashboard-04-chunk-0"
         >
-          <Link href="#" className="font-semibold text-primary">
-            General
+          <Link href="/company-setting">General</Link>
+          <Link href="/company-about" className="font-semibold text-primary">
+            Présentation
           </Link>
-          <Link href="#">Présentation</Link>
-          <Link href="#">Equipes</Link>
-          <Link href="#">Technologies</Link>
-          <Link href="#">Galerie</Link>
-          <Link href="#">Réseaux sociaux</Link>
+          <Link href="/company-avatar">Avatar</Link>
+          <Link href="/company-job">Posté un job</Link>
+          <Link href="/company/jobs">Offres reçues</Link>
+          <Link href="/company-social-link">Réseaux sociaux</Link>
         </nav>
         <div className="grid gap-6">
           <Card x-chunk="dashboard-04-chunk-1">
@@ -80,7 +80,6 @@ export default function CompanyAbout() {
                   onChange={(e) => setCompanyAbout(e.target.value)}
                   className="mb-4 mt-4"
                   placeholder="Décrivez votre entreprise"
-                  defaultValue="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, mauris eu tincidunt"
                 />
                 <CardFooter className="border-t px-6 py-4">
                   {!isLoading && <Button type="submit">Save</Button>}
