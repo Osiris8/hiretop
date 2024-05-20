@@ -54,3 +54,37 @@ export const PATCH = async (request, { params }) => {
     });
   }
 };
+
+export const GET = async (request, { params }) => {
+  try {
+    await connectToDB();
+
+    const talentNextProfil = await TalentNextProfil.find({ userId: params.id });
+
+    if (!talentNextProfil) {
+      return new Response(
+        JSON.stringify({ error: "Talent profil not found" }),
+        {
+          status: 404,
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+    }
+
+    return new Response(JSON.stringify(talentNextProfil), {
+      status: 200,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  } catch (error) {
+    return new Response(JSON.stringify({ error: "Failed to fetch data" }), {
+      status: 500,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  }
+};

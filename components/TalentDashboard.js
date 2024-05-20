@@ -27,6 +27,7 @@ function ProfileCard() {
     isLoading,
     updateTalentNextProfil,
   } = useTalentNextProfil(user?.id);
+  console.log(userTalent);
   return (
     <div className="text-center">
       <h1 className="text-3xl font-semibold mt-4">Ma présentation</h1>
