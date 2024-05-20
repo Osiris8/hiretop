@@ -3,11 +3,17 @@
 import React from "react";
 
 const CandidatureCard = ({ candidature }) => {
+  const jobUrl = `/talent-job-detail/${candidature.jobId}`;
   return (
     <div className="bg-white shadow-md rounded-lg p-4 mb-4">
-      <p>
-        <strong>Job ID:</strong> {candidature.jobId}
-      </p>
+      <a
+        href={jobUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-blue-500 font-semibold"
+      >
+        Voir le job
+      </a>
       <p>
         <strong>Status:</strong> {candidature.status}
       </p>
@@ -19,7 +25,7 @@ const CandidatureCard = ({ candidature }) => {
         href={candidature.cvUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-blue-500"
+        className="text-blue-500 font-semibold"
       >
         Voir le CV
       </a>
