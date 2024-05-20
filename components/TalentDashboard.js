@@ -99,12 +99,6 @@ function ProfileCard() {
       <h2 className="text-2xl font-semibold mt-4">Autres</h2>
       <div className="max-w-sm mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl mt-5">
         <div className="p-8">
-          <a
-            href="#"
-            className="block mt-1 text-lg leading-tight font-medium text-black hover:underline"
-          >
-            {userTalent[0]?.firstname + " " + userTalent[0]?.lastname}
-          </a>
           {renderAvailability(level, "Niveau")}
           {renderAvailability(remote, "Travail à distance")}
           {renderAvailability(freelance, "Freelance")}
