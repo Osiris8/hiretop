@@ -44,7 +44,7 @@ export default function TalentProfil() {
                     htmlFor="firstname"
                     className="block mb-3 text-sm font-medium text-black"
                   >
-                    First name
+                    Prénom
                   </label>
                   <input
                     onChange={(e) => setFirstname(e.target.value)}
@@ -61,7 +61,7 @@ export default function TalentProfil() {
                     htmlFor="lastname"
                     className="block mb-3 text-sm font-medium text-black"
                   >
-                    Last name
+                    Nom
                   </label>
                   <input
                     onChange={(e) => setLastname(e.target.value)}
@@ -95,7 +95,7 @@ export default function TalentProfil() {
                     htmlFor="country"
                     className="block mb-3 text-sm font-medium text-black"
                   >
-                    Country
+                    Pays
                   </label>
                   <input
                     onChange={(e) => setCountry(e.target.value)}

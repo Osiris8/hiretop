@@ -50,7 +50,7 @@ export default function CompanyProfil() {
                     htmlFor="company"
                     className="block mb-3 text-sm font-medium text-black"
                   >
-                    Name enterprise
+                    Nom de l&#39;entreprise
                   </label>
                   <input
                     onChange={(e) => setCompany(e.target.value)}
@@ -84,7 +84,7 @@ export default function CompanyProfil() {
                     htmlFor="size"
                     className="block mb-3 text-sm font-medium text-black"
                   >
-                    Size
+                    Taille
                   </label>
                   <input
                     onChange={(e) => setSize(e.target.value)}
@@ -101,7 +101,7 @@ export default function CompanyProfil() {
                     htmlFor="position"
                     className="block mb-3 text-sm font-medium text-black"
                   >
-                    Address
+                    Addresse
                   </label>
                   <input
                     onChange={(e) => setPosition(e.target.value)}
@@ -135,7 +135,7 @@ export default function CompanyProfil() {
                     htmlFor="country"
                     className="block mb-3 text-sm font-medium text-black"
                   >
-                    Country
+                    Pays
                   </label>
                   <input
                     onChange={(e) => setCountry(e.target.value)}
