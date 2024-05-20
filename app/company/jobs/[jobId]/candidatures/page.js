@@ -4,6 +4,17 @@ import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 import { useEdgeStore } from "@/lib/edgestore";
+import CompanyNav from "@/components/CompanyNav";
+import { Button } from "@/components/ui/button";
+import { Label } from "@/components/ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Input } from "@/components/ui/input";
 
 const CandidatureList = () => {
   const { jobId } = useParams();
@@ -46,52 +57,50 @@ const CandidatureList = () => {
   }
 
   return (
-    <div className="p-6 max-w-4xl mx-auto">
-      <h1 className="text-3xl font-bold mb-4">
-        Candidatures for Job ID: {jobId}
-      </h1>
-      {candidatures.map((candidature) => (
-        <div
-          key={candidature._id}
-          className="bg-white shadow-md rounded-lg p-4 mb-4"
-        >
-          <p>
-            <strong>User ID:</strong> {candidature.userId}
-          </p>
-          <p>
-            <strong>Status:</strong> {candidature.status}
-          </p>
-          <p>
-            <strong>Date de candidature:</strong>{" "}
-            {new Date(candidature.createdAt).toLocaleDateString()}
-          </p>
-          <a
-            href={candidature.cvUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-blue-500"
+    <>
+      <CompanyNav />
+      <div className="p-6 max-w-4xl mx-auto">
+        <h1 className="text-3xl font-bold mb-4">Candidatures pour le job</h1>
+        {candidatures.map((candidature) => (
+          <div
+            key={candidature._id}
+            className="bg-white shadow-md rounded-lg p-4 mb-4"
           >
-            Voir le CV
-          </a>
-          {candidature.offerUrl && (
-            <div>
-              <p>
-                <strong>Offer URL:</strong>
-              </p>
-              <a
-                href={candidature.offerUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-500"
-              >
-                Voir l&apos;offre
-              </a>
-            </div>
-          )}
-          <CandidatureActions candidatureId={candidature._id} />
-        </div>
-      ))}
-    </div>
+            <p>
+              <strong>Status:</strong> {candidature.status}
+            </p>
+            <p>
+              <strong>Date de candidature:</strong>{" "}
+              {new Date(candidature.createdAt).toLocaleDateString()}
+            </p>
+            <a
+              href={candidature.cvUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-500"
+            >
+              Voir le CV
+            </a>
+            {candidature.offerUrl && (
+              <div>
+                <p>
+                  <strong>Offer URL:</strong>
+                </p>
+                <a
+                  href={candidature.offerUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-500"
+                >
+                  Voir l&apos;offre
+                </a>
+              </div>
+            )}
+            <CandidatureActions candidatureId={candidature._id} />
+          </div>
+        ))}
+      </div>
+    </>
   );
 };
 
@@ -100,11 +109,12 @@ export default CandidatureList;
 const CandidatureActions = ({ candidatureId }) => {
   const [status, setStatus] = useState("");
   const [file, setFile] = useState(null);
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmittingStatus, setIsSubmittingStatus] = useState(false);
+  const [isSubmittingOffer, setIsSubmittingOffer] = useState(false);
   const { edgestore } = useEdgeStore();
 
   const handleStatusChange = async () => {
-    setIsSubmitting(true);
+    setIsSubmittingStatus(true);
 
     try {
       const response = await fetch(`/api/candidature/${candidatureId}/status`, {
@@ -116,14 +126,15 @@ const CandidatureActions = ({ candidatureId }) => {
       });
 
       if (response.ok) {
-        alert("Status updated successfully");
+        alert("Status modifié avec succès");
+        window.location.reload();
       } else {
-        alert("Failed to update status");
+        alert("Erreur lors de la modification du statut");
       }
     } catch (error) {
       console.error(error);
     } finally {
-      setIsSubmitting(false);
+      setIsSubmittingStatus(false);
     }
   };
 
@@ -131,7 +142,7 @@ const CandidatureActions = ({ candidatureId }) => {
     e.preventDefault();
 
     if (file) {
-      setIsSubmitting(true);
+      setIsSubmittingOffer(true);
 
       try {
         const res = await edgestore.publicFiles.upload({
@@ -150,14 +161,15 @@ const CandidatureActions = ({ candidatureId }) => {
         );
 
         if (response.ok) {
-          alert("Offer sent successfully");
+          alert("Offre envoyé avec succès");
+          window.location.reload();
         } else {
-          alert("Failed to send offer");
+          alert("Erreur lors de l&apos;envoi de l&apos;offre");
         }
       } catch (error) {
         console.error(error);
       } finally {
-        setIsSubmitting(false);
+        setIsSubmittingOffer(false);
       }
     }
   };
@@ -165,41 +177,43 @@ const CandidatureActions = ({ candidatureId }) => {
   return (
     <div className="mt-4">
       <div className="mb-4">
-        <label
-          htmlFor="status"
-          className="block text-sm font-medium text-gray-700"
-        >
-          Mettre à jour le statut
-        </label>
-        <select
+        <Label htmlFor="status">Statut</Label>
+        <Select
           id="status"
           value={status}
-          onChange={(e) => setStatus(e.target.value)}
-          className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+          onValueChange={(value) => setStatus(value)}
+          //onChange={(e) => setStatus(e.target.value)}
+          className="mt-6 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
         >
-          <option value="">Sélectionnez le statut</option>
-          <option value="En cours">En cours</option>
-          <option value="Rejetée">Rejetée</option>
-          <option value="Offre envoyée">Offre envoyée</option>
-        </select>
-        <button
+          <SelectTrigger className="">
+            <SelectValue placeholder="Mettre à jour le statut" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="En cours de traitement">
+              En cours de traitement
+            </SelectItem>
+            <SelectItem value="Rejetée">Rejetée</SelectItem>
+            <SelectItem value="Offre envoyée">Offre envoyée</SelectItem>
+          </SelectContent>
+        </Select>
+        <Button
           onClick={handleStatusChange}
-          className="mt-2 bg-blue-500 text-white px-4 py-2 rounded"
-          disabled={isSubmitting}
+          className="mt-2 bg-slate-900 text-white px-4 py-2 rounded"
+          disabled={isSubmittingStatus}
         >
-          {isSubmitting ? "Mise à jour..." : "Mettre à jour"}
-        </button>
+          {isSubmittingStatus ? "Mise à jour..." : "Mettre à jour"}
+        </Button>
       </div>
 
       <div>
         <form onSubmit={handleOfferSubmit}>
-          <label
+          <Label
             htmlFor="offer"
             className="block text-sm font-medium text-gray-700"
           >
             Envoyer une offre
-          </label>
-          <input
+          </Label>
+          <Input
             id="offer"
             type="file"
             required
@@ -207,13 +221,13 @@ const CandidatureActions = ({ candidatureId }) => {
             onChange={(e) => setFile(e.target.files?.[0] ?? null)}
             className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
           />
-          <button
+          <Button
             type="submit"
-            className="mt-2 bg-blue-500 text-white px-4 py-2 rounded"
-            disabled={isSubmitting}
+            className="mt-2 bg-slate-900 text-white px-4 py-2 rounded"
+            disabled={isSubmittingOffer}
           >
-            {isSubmitting ? "Envoi en cours..." : "Envoyer"}
-          </button>
+            {isSubmittingOffer ? "Envoi en cours..." : "Envoyer"}
+          </Button>
         </form>
       </div>
     </div>
