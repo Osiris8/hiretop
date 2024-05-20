@@ -92,8 +92,9 @@ export default function CompanyJobOffer() {
                       >
                         <h2 className="text-2xl font-bold">{job.title}</h2>
                         <p>{job.description}</p>
-                        <p>{job.contract}</p>
-                        <p>{job.country}</p>
+                        <p className=" font-medium">
+                          Type du contrat : {job.contract}
+                        </p>
                       </div>
                     ))}
                   </div>

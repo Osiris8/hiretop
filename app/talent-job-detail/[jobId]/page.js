@@ -5,6 +5,7 @@ import { useParams } from "next/navigation";
 import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 import { useEdgeStore } from "@/lib/edgestore";
 import { useRouter } from "next/navigation";
+import TalentNav from "@/components/TalentNav";
 
 const JobDetail = () => {
   const { jobId } = useParams();
@@ -110,50 +111,56 @@ const JobDetail = () => {
   }
 
   return (
-    <div className="p-6 max-w-4xl mx-auto">
-      <h1 className="text-3xl font-bold mb-4">{job.title}</h1>
-      <img
-        className="w-full h-48 object-cover mb-4"
-        src={job.mainImage}
-        alt="Team"
-      />
-      <p className="text-lg mb-4">{job.description}</p>
-      <p className="text-lg mb-4">
-        <strong>Profil recherché:</strong> {job.profil}
-      </p>
-      <p className="text-lg mb-4">
-        <strong>Processus d&#39;entretien:</strong> {job.interview}
-      </p>
-      <p className="text-lg mb-4">
-        <strong>Type de contrat:</strong> {job.contract}
-      </p>
-      <p className="text-lg mb-4">
-        <strong>Pays:</strong> {job.country}
-      </p>
-      <p className="text-lg mb-4">
-        <strong>Publié:</strong> {job.publicationDate}
-      </p>
+    <div className="flex min-h-screen w-full flex-col">
+      <TalentNav />
+      <div className="p-6 max-w-4xl mx-auto">
+        <h1 className="text-3xl font-bold mb-4">{job.title}</h1>
+        <img
+          className="w-full h-48 object-cover mb-4 rounded-lg"
+          src={job.mainImage}
+          alt="Team"
+        />
+        <p className="text-lg mb-4">
+          <strong>Description: </strong>
+          {job.description}
+        </p>
+        <p className="text-lg mb-4">
+          <strong>Profil recherché:</strong> {job.profil}
+        </p>
+        <p className="text-lg mb-4">
+          <strong>Processus d&#39;entretien:</strong> {job.interview}
+        </p>
+        <p className="text-lg mb-4">
+          <strong>Type de contrat:</strong> {job.contract}
+        </p>
+        <p className="text-lg mb-4">
+          <strong>Pays:</strong> {job.country}
+        </p>
+        <p className="text-lg mb-4">
+          <strong>Publié:</strong> {job.publicationDate}
+        </p>
 
-      {candidatureExists ? (
-        <p className="text-red-500">Vous avez déjà postulé pour ce poste.</p>
-      ) : (
-        <form onSubmit={handleSubmit}>
-          <input
-            type="file"
-            required
-            accept=".pdf,.doc,.docx"
-            onChange={(e) => setFile(e.target.files?.[0] ?? null)}
-            className="mb-4"
-          />
-          <button
-            type="submit"
-            className="bg-blue-500 text-white px-4 py-2 rounded"
-            disabled={isSubmitting}
-          >
-            {isSubmitting ? "Envoi en cours..." : "Postuler"}
-          </button>
-        </form>
-      )}
+        {candidatureExists ? (
+          <p className="text-red-500">Vous avez déjà postulé pour ce poste.</p>
+        ) : (
+          <form onSubmit={handleSubmit}>
+            <input
+              type="file"
+              required
+              accept=".pdf,.doc,.docx"
+              onChange={(e) => setFile(e.target.files?.[0] ?? null)}
+              className="mb-4"
+            />
+            <button
+              type="submit"
+              className="bg-blue-500 text-white px-4 py-2 rounded"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? "Envoi en cours..." : "Postuler"}
+            </button>
+          </form>
+        )}
+      </div>
     </div>
   );
 };

@@ -178,8 +178,8 @@ export default function CompanyJob() {
                     <SelectValue placeholder="Contrat" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="Remote">Télétravail</SelectItem>
-                    <SelectItem value="Onsite">Sur place</SelectItem>
+                    <SelectItem value="Télétravail">Télétravail</SelectItem>
+                    <SelectItem value="Sur site">Sur place</SelectItem>
                     <SelectItem value="Freelance">Freelance</SelectItem>
                     <SelectItem value="Hybrid">Hybride</SelectItem>
                   </SelectContent>

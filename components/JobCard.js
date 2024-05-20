@@ -27,7 +27,7 @@ const JobCard = ({
           <div className="flex items-center mb-4">
             <Image
               className="h-12 w-12 rounded-full"
-              src={companyLogo}
+              src={companyLogo ? companyLogo : teamPhoto}
               width={100}
               height={100}
               alt="Company Logo"
