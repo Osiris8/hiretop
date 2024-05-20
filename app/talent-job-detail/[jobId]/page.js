@@ -141,7 +141,9 @@ const JobDetail = () => {
         </p>
 
         {candidatureExists ? (
-          <p className="text-red-500">Vous avez déjà postulé pour ce poste.</p>
+          <p className="text-green-500 font-semibold">
+            Vous avez déjà postulé pour ce poste.
+          </p>
         ) : (
           <div>
             <p className="text-lg mb-4">
