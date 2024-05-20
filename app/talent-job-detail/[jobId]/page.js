@@ -6,6 +6,8 @@ import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 import { useEdgeStore } from "@/lib/edgestore";
 import { useRouter } from "next/navigation";
 import TalentNav from "@/components/TalentNav";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 
 const JobDetail = () => {
   const { jobId } = useParams();
@@ -86,6 +88,9 @@ const JobDetail = () => {
         });
 
         if (response.ok) {
+          alert(
+            "Candidature envoyée avec succès. Vous serez rédirigé vers la page de vos candidatures."
+          );
           router.push("/talent-candidatures");
         } else {
           console.error("Failed to submit candidature");
@@ -98,16 +103,8 @@ const JobDetail = () => {
     }
   };
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
-
   if (!job) {
-    return <div>No job found</div>;
+    return <div>Loading...</div>;
   }
 
   return (
@@ -121,44 +118,52 @@ const JobDetail = () => {
           alt="Team"
         />
         <p className="text-lg mb-4">
-          <strong>Description: </strong>
+          <strong>Description : </strong>
           {job.description}
         </p>
         <p className="text-lg mb-4">
-          <strong>Profil recherché:</strong> {job.profil}
+          <strong>Profil recherché :</strong> {job.profil}
         </p>
         <p className="text-lg mb-4">
-          <strong>Processus d&#39;entretien:</strong> {job.interview}
+          <strong>Processus d&#39;entretien :</strong> {job.interview}
         </p>
         <p className="text-lg mb-4">
-          <strong>Type de contrat:</strong> {job.contract}
+          <strong>Type de contrat :</strong> {job.contract}
         </p>
         <p className="text-lg mb-4">
-          <strong>Pays:</strong> {job.country}
+          <strong>Pays :</strong> {job.country}
         </p>
+
+        <hr className="my-4 border-t border-slate-900" />
+
         <p className="text-lg mb-4">
-          <strong>Publié:</strong> {job.publicationDate}
+          <strong>Information sur l&#39;entreprise :</strong> {job.company}
         </p>
 
         {candidatureExists ? (
           <p className="text-red-500">Vous avez déjà postulé pour ce poste.</p>
         ) : (
-          <form onSubmit={handleSubmit}>
-            <input
-              type="file"
-              required
-              accept=".pdf,.doc,.docx"
-              onChange={(e) => setFile(e.target.files?.[0] ?? null)}
-              className="mb-4"
-            />
-            <button
-              type="submit"
-              className="bg-blue-500 text-white px-4 py-2 rounded"
-              disabled={isSubmitting}
-            >
-              {isSubmitting ? "Envoi en cours..." : "Postuler"}
-            </button>
-          </form>
+          <div>
+            <p className="text-lg mb-4">
+              <strong>Envoyer votre CV</strong>
+            </p>
+            <form onSubmit={handleSubmit}>
+              <Input
+                type="file"
+                required
+                accept=".pdf,.doc,.docx"
+                onChange={(e) => setFile(e.target.files?.[0] ?? null)}
+                className="mb-4"
+              />
+              <Button
+                type="submit"
+                className="bg-slate-900 text-white px-4 py-2 rounded"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? "Envoi en cours..." : "Postuler"}
+              </Button>
+            </form>
+          </div>
         )}
       </div>
     </div>
