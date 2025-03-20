@@ -63,7 +63,7 @@ function ProfileCard() {
 
   return (
     <div className="text-center">
-      <h1 className="text-3xl font-semibold mt-4">Ma présentation</h1>
+      <h1 className="text-3xl font-semibold mt-4">My introduction</h1>
       <div className="max-w-sm mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl mt-5">
         <div className="md:flex">
           <div className="md:flex-shrink-0">
@@ -103,14 +103,14 @@ function ProfileCard() {
       <h2 className="text-2xl font-semibold mt-4">Autres</h2>
       <div className="max-w-sm mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl mt-5">
         <div className="p-8">
-          {renderAvailability(level, "Niveau")}
-          {renderAvailability(remote, "Travail à distance")}
+          {renderAvailability(level, "Level")}
+          {renderAvailability(remote, "Remote")}
           {renderAvailability(freelance, "Freelance")}
-          {renderAvailability(available, "Disponibilité")}
-          {renderAvailability(onsite, "Sur site")}
+          {renderAvailability(available, "Availability")}
+          {renderAvailability(onsite, "On site")}
         </div>
       </div>
-      <h2 className="text-2xl font-semibold mt-4">Liens sociaux</h2>
+      <h2 className="text-2xl font-semibold mt-4">Socials Links</h2>
       <div className="flex justify-center space-x-4 mt-4">
         {renderSocialLink(facebook, "Facebook")}
         {renderSocialLink(github, "GitHub")}
