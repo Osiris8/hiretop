@@ -68,24 +68,21 @@ export default function CompanySocialLink() {
           className="grid gap-4 text-sm text-muted-foreground"
           x-chunk="dashboard-04-chunk-0"
         >
-          <Link href="/company-setting">General</Link>
-          <Link href="/company-about">Présentation</Link>
-          <Link href="/company-avatar">Avatar</Link>
-          <Link href="/company-job">Posté un job</Link>
-          <Link href="/company/jobs">Propositions reçues</Link>
-          <Link href="/company-all-job">Explorer les jobs</Link>
-          <Link
-            href="/company-social-link"
-            className="font-semibold text-primary"
-          >
-            Réseaux sociaux
+          <Link href="/company-setting" className="font-semibold text-primary">
+            General
           </Link>
+          <Link href="/company-about">Introduction</Link>
+          <Link href="/company-avatar">Avatar</Link>
+          <Link href="/company-job">Post a job</Link>
+          <Link href="/company/jobs">Proposition reveived</Link>
+          <Link href="/company-all-job">Explore the jobs</Link>
+          <Link href="/company-social-link">Social media</Link>
         </nav>
         <div className="grid gap-6">
           <Card x-chunk="dashboard-04-chunk-1">
             <CardHeader>
-              <CardTitle>Réseaux sociaux</CardTitle>
-              <CardDescription>Modifier vos informations</CardDescription>
+              <CardTitle>Social Media</CardTitle>
+              <CardDescription>Update your informations</CardDescription>
             </CardHeader>
             <CardContent>
               <form onSubmit={companySocialLink}>

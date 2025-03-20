@@ -71,20 +71,20 @@ export default function CompanyAvatar() {
           x-chunk="dashboard-04-chunk-0"
         >
           <Link href="/company-setting">General</Link>
-          <Link href="/company-about">Présentation</Link>
+          <Link href="/company-about">Introduction</Link>
           <Link href="/company-avatar" className="font-semibold text-primary">
             Avatar
           </Link>
-          <Link href="/company-job">Posté un job</Link>
-          <Link href="/company/jobs">Propositions reçues</Link>
-          <Link href="/company-all-job">Explorer des jobs</Link>
-          <Link href="/company-social-link">Réseaux sociaux</Link>
+          <Link href="/company-job">Post a job</Link>
+          <Link href="/company/jobs">Proposals received</Link>
+          <Link href="/company-all-job">Explore jobs</Link>
+          <Link href="/company-social-link">Social media</Link>
         </nav>
         <div className="grid gap-6">
           <Card x-chunk="dashboard-04-chunk-1">
             <CardHeader>
               <CardTitle>Profil</CardTitle>
-              <CardDescription>Photo de profil</CardDescription>
+              <CardDescription>Profile picture</CardDescription>
             </CardHeader>
             <CardContent>
               <form onSubmit={companyAvatar}>

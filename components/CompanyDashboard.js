@@ -61,27 +61,27 @@ export default function CompanyDashboard() {
           </div>
           <div className="p-8">
             <div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold">
-              {company[0]?.domain || "Non renseigné"}
+              {company[0]?.domain || "Not provided"}
             </div>
             <div className="mt-1 text-lg leading-tight font-medium text-black">
-              {company[0]?.size + " employés" || "Non renseigné"}
+              {company[0]?.size + "Employees" || "Not provided"}
             </div>
             <p className="mt-2 text-gray-500">
-              {companyAbout[0]?.companyAbout || "Non renseigné"}
+              {companyAbout[0]?.companyAbout || "Not provided"}
             </p>
             <p className="mt-2 text-gray-500">
-              Position : {company[0]?.position || "Non renseigné"}
+              Position : {company[0]?.position || "Not provided"}
             </p>
             <p className="mt-2 text-gray-500">
-              Téléphone : {company[0]?.telephone || "Non renseigné"}
+              Phone : {company[0]?.telephone || "Not provided"}
             </p>
             <p className="mt-2 text-gray-500">
-              Pays : {company[0]?.country || "Non renseigné"}
+              Country : {company[0]?.country || "Not provided"}
             </p>
           </div>
         </div>
       </div>
-      <h2 className="text-2xl font-semibold mt-4">Liens sociaux</h2>
+      <h2 className="text-2xl font-semibold mt-4">Social media</h2>
       <div className="flex justify-center space-x-4 mt-4">
         {renderSocialLink(companySocial[0]?.facebook, "Facebook")}
         {renderSocialLink(companySocial[0]?.github, "GitHub")}

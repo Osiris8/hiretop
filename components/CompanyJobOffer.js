@@ -58,29 +58,29 @@ export default function CompanyJobOffer() {
           x-chunk="dashboard-04-chunk-0"
         >
           <Link href="/company-setting">General</Link>
-          <Link href="/company-about">Présentation</Link>
+          <Link href="/company-about">Introduction</Link>
           <Link href="/company-avatar">Avatar</Link>
-          <Link href="/company-job">Posté un job</Link>
+          <Link href="/company-job">Post a job</Link>
           <Link href="/company/jobs" className="font-semibold text-primary">
-            Propositions reçues
+            Propositions received
           </Link>
-          <Link href="/company-all-job">Explorer des jobs</Link>
-          <Link href="/company-social-link">Réseaux sociaux</Link>
+          <Link href="/company-all-job">Explore the jobs</Link>
+          <Link href="/company-social-link">Social media</Link>
         </nav>
         <div className="grid gap-6">
           <Card x-chunk="dashboard-04-chunk-1">
             <CardHeader>
-              <CardTitle>Propositions reçues</CardTitle>
+              <CardTitle>Propositions received</CardTitle>
               <CardDescription>
-                Cliquez sur les jobs que vous avez posté pour voir les
-                propositions des différents talents.
+                Click on the jobs you have posted to view the proposals from
+                different talents.
               </CardDescription>
             </CardHeader>
             <CardContent>
               <div className="p-6 max-w-4xl mx-auto">
-                <h3 className=" font-bold mb-4">Jobs Posté</h3>
+                <h3 className=" font-bold mb-4">Posted Jobs</h3>
                 {jobs.length === 0 ? (
-                  <p>Aucun Job trouvé</p>
+                  <p>No jobs found</p>
                 ) : (
                   <div>
                     {jobs.map((job) => (
@@ -94,7 +94,7 @@ export default function CompanyJobOffer() {
                         <h2 className="text-2xl font-bold">{job.title}</h2>
                         <p>{job.description}</p>
                         <p className=" font-medium">
-                          Type du contrat : {job.contract}
+                          Contract Type : {job.contract}
                         </p>
                       </div>
                     ))}

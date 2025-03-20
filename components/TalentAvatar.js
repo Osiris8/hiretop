@@ -31,14 +31,14 @@ export default function TalentAvatar() {
           x-chunk="dashboard-04-chunk-0"
         >
           <Link href="/talent-setting">General</Link>
-          <Link href="/talent-next-profil">Mes choix</Link>
+          <Link href="/talent-next-profil">My choices</Link>
           <Link href="/talent-avatar" className="font-semibold text-primary">
             Avatar
           </Link>
-          <Link href="/talent-experience">Expériences</Link>
-          <Link href="/talent-skill">Compétences</Link>
-          <Link href="/talent-social-link">Réseaux sociaux</Link>
-          <Link href="/talent-candidatures">Mes candidatures</Link>
+          <Link href="/talent-experience">Experiences</Link>
+          <Link href="/talent-skill">Skills</Link>
+          <Link href="/talent-social-link">Social Media</Link>
+          <Link href="/talent-candidatures">My Applications</Link>
           <Link href="/talent-job">Jobs</Link>
         </nav>
         <div className="grid gap-6">

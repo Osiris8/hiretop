@@ -63,22 +63,22 @@ export default function CompanyDashboard() {
           <Link href="/company-setting" className="font-semibold text-primary">
             General
           </Link>
-          <Link href="/company-about">Présentation</Link>
+          <Link href="/company-about">Introduction</Link>
           <Link href="/company-avatar">Avatar</Link>
-          <Link href="/company-job">Posté un job</Link>
-          <Link href="/company/jobs">Propositions reçues</Link>
-          <Link href="/company-all-job">Explorer des jobs</Link>
-          <Link href="/company-social-link">Réseaux sociaux</Link>
+          <Link href="/company-job">Post a job</Link>
+          <Link href="/company/jobs">Proposition reveived</Link>
+          <Link href="/company-all-job">Explore the jobs</Link>
+          <Link href="/company-social-link">Social media</Link>
         </nav>
         <div className="grid gap-6">
           <Card x-chunk="dashboard-04-chunk-1">
             <CardHeader>
-              <CardTitle>Compagnie Profil</CardTitle>
-              <CardDescription>Modifier vos informations</CardDescription>
+              <CardTitle>Company Profil</CardTitle>
+              <CardDescription>Update your informations</CardDescription>
             </CardHeader>
             <CardContent>
               <form onSubmit={companyDashboard}>
-                <Label htmlFor="company">Notre de votre entreprise</Label>
+                <Label htmlFor="company">Your company Name</Label>
                 <Input
                   required={true}
                   value={company}
@@ -87,43 +87,43 @@ export default function CompanyDashboard() {
                   className="mb-8 mt-2"
                   id="company"
                 />
-                <Label htmlFor="domain">Domaine</Label>
+                <Label htmlFor="domain">Domain</Label>
                 <Input
                   required={true}
                   value={domain}
                   onChange={(e) => setDomain(e.target.value)}
-                  placeholder="Votre domaine"
+                  placeholder="Your domain"
                   className="mb-8 mt-2"
                   id="domain"
                 />
-                <Label htmlFor="size">Taille</Label>
+                <Label htmlFor="size">Size</Label>
                 <Input
                   required={true}
                   value={size}
                   onChange={(e) => setSize(e.target.value)}
-                  placeholder="Taille de votre entreprise"
+                  placeholder="Size"
                   className="mb-8 mt-2"
                   id="size"
                 />
-                <Label htmlFor="position">Adresse</Label>
+                <Label htmlFor="position">Adress</Label>
                 <Input
                   required={true}
                   value={position}
                   onChange={(e) => setPosition(e.target.value)}
-                  placeholder="Adresse de votre entreprise"
+                  placeholder="Adress"
                   className="mb-8 mt-2"
                   id="position"
                 />
-                <Label htmlFor="telephone">Telephone</Label>
+                <Label htmlFor="phone">phone</Label>
                 <Input
                   required={true}
                   value={telephone}
                   onChange={(e) => setTelephone(e.target.value)}
-                  placeholder="Telephone"
+                  placeholder="phone"
                   className="mb-8 mt-2"
                   id="telephone"
                 />
-                <Label htmlFor="country">Pays</Label>
+                <Label htmlFor="country">Country</Label>
                 <Input
                   required={true}
                   value={country}

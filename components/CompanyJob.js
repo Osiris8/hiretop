@@ -76,7 +76,7 @@ export default function CompanyJob() {
         if (response.ok) {
           setIsLoading(false);
           alert(
-            "Vous avez ajouter une nouvelle de récrutement avec succès ! Vous allez etre rediriger vers la page de profil"
+            "You have successfully added a new recruitment post! You will be redirected to the profile page."
           );
           console.log(response);
           router.push("/company-dashboard");
@@ -99,29 +99,29 @@ export default function CompanyJob() {
           x-chunk="dashboard-04-chunk-0"
         >
           <Link href="/company-setting">General</Link>
-          <Link href="/company-about">Présentation</Link>
+          <Link href="/company-about">Introduction</Link>
           <Link href="/company-avatar">Avatar</Link>
           <Link href="/company-job" className="font-semibold">
-            Posté un job
+            Post a job
           </Link>
-          <Link href="/company/jobs">Propositions reçues</Link>
-          <Link href="/company-all-job">Explorer des jobs</Link>
-          <Link href="/company-social-link">Réseaux sociaux</Link>
+          <Link href="/company/jobs">Propositions reveived</Link>
+          <Link href="/company-all-job">Explore the jobs</Link>
+          <Link href="/company-social-link">Social media</Link>
         </nav>
         <div className="grid gap-6">
           <Card x-chunk="dashboard-04-chunk-1">
             <CardHeader>
               <CardTitle>Job</CardTitle>
-              <CardDescription>Poster un Job</CardDescription>
+              <CardDescription>Post a Job</CardDescription>
             </CardHeader>
             <CardContent>
               <ul>
                 {!setIsSubmitting && (
-                  <div className="text-center">Chargement...</div>
+                  <div className="text-center">Loading...</div>
                 )}
               </ul>
               <form onSubmit={companyJob}>
-                <Label htmlFor="jobTitle">Titre du Poste</Label>
+                <Label htmlFor="jobTitle">Job Title</Label>
                 <Input
                   required={true}
                   value={title}
@@ -141,7 +141,7 @@ export default function CompanyJob() {
                   id="jobDescription"
                   type="text"
                 />
-                <Label htmlFor="jobProfil">Profil Recherché</Label>
+                <Label htmlFor="jobProfil">Profil looking</Label>
                 <Textarea
                   required={true}
                   value={profil}
@@ -151,7 +151,7 @@ export default function CompanyJob() {
                   id="jobProfil"
                   type="text"
                 />
-                <Label htmlFor="jobInterview">Déroulement des entretiens</Label>
+                <Label htmlFor="jobInterview">Interview Process</Label>
                 <Textarea
                   required={true}
                   value={interview}
@@ -162,7 +162,7 @@ export default function CompanyJob() {
                   type="text"
                 />
 
-                <Label htmlFor="jobMainImage">Image Principale</Label>
+                <Label htmlFor="jobMainImage">Main Image</Label>
                 <Input
                   className="mb-4"
                   type="file"
@@ -179,14 +179,14 @@ export default function CompanyJob() {
                     <SelectValue placeholder="Contrat" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="Télétravail">Télétravail</SelectItem>
-                    <SelectItem value="Sur site">Sur place</SelectItem>
+                    <SelectItem value="Remote">Remote</SelectItem>
+                    <SelectItem value="Onsite">Onsite</SelectItem>
                     <SelectItem value="Freelance">Freelance</SelectItem>
-                    <SelectItem value="Hybrid">Hybride</SelectItem>
+                    <SelectItem value="Hybrid">Hybrid</SelectItem>
                   </SelectContent>
                 </Select>
 
-                <Label htmlFor="jobCountry">Pays</Label>
+                <Label htmlFor="jobCountry">Country</Label>
 
                 <CountrySelect
                   countryChoice={country}

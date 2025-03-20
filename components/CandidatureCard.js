@@ -12,14 +12,14 @@ const CandidatureCard = ({ candidature }) => {
         rel="noopener noreferrer"
         className="text-blue-500 font-semibold"
       >
-        Voir le job
+        View the job
       </a>
       <p>
         <strong>Status:</strong> {candidature.status}
       </p>
       {candidature.status === "Offre envoyée" && (
         <p>
-          <strong>Offre envoyée:</strong>{" "}
+          <strong>Offer sent:</strong>{" "}
           {candidature.offerUrl ? (
             <a
               href={candidature.offerUrl}
@@ -27,15 +27,15 @@ const CandidatureCard = ({ candidature }) => {
               rel="noopener noreferrer"
               className="text-blue-500 font-semibold"
             >
-              Voir l&apos;offre
+              View the offer
             </a>
           ) : (
-            "Non"
+            "No"
           )}
         </p>
       )}
       <p>
-        <strong>Date de candidature:</strong>{" "}
+        <strong>Application date:</strong>{" "}
         {new Date(candidature.createdAt).toLocaleDateString()}
       </p>
       <a
@@ -44,7 +44,7 @@ const CandidatureCard = ({ candidature }) => {
         rel="noopener noreferrer"
         className="text-blue-500 font-semibold"
       >
-        Voir le CV
+        View the resume
       </a>
     </div>
   );

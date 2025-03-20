@@ -57,44 +57,44 @@ export default function TalentDashboard() {
           className="grid gap-4 text-sm text-muted-foreground"
           x-chunk="dashboard-04-chunk-0"
         >
-          <Link href="/talent-setting" className="font-semibold text-primary">
-            General
+          <Link href="/talent-setting">General</Link>
+          <Link href="/talent-next-profil">My choices</Link>
+          <Link href="/talent-avatar" className="font-semibold text-primary">
+            Avatar
           </Link>
-          <Link href="/talent-next-profil">Mes choix</Link>
-          <Link href="/talent-avatar">Avatar</Link>
-          <Link href="/talent-experience">Expériences</Link>
-          <Link href="/talent-skill">Compétences</Link>
-          <Link href="/talent-social-link">Réseaux sociaux</Link>
-          <Link href="/talent-candidatures">Mes candidatures</Link>
+          <Link href="/talent-experience">Experiences</Link>
+          <Link href="/talent-skill">Skills</Link>
+          <Link href="/talent-social-link">Social Media</Link>
+          <Link href="/talent-candidatures">My Applications</Link>
           <Link href="/talent-job">Jobs</Link>
         </nav>
         <div className="grid gap-6">
           <Card x-chunk="dashboard-04-chunk-1">
             <CardHeader>
-              <CardTitle>Profil Personnel</CardTitle>
-              <CardDescription>Modifier vos informations</CardDescription>
+              <CardTitle>Profil</CardTitle>
+              <CardDescription>Update your informations</CardDescription>
             </CardHeader>
             <CardContent>
               <form onSubmit={talentDashboard}>
-                <Label htmlFor="firstname">Votre Prénom</Label>
+                <Label htmlFor="firstname">firstname</Label>
                 <Input
                   required={true}
                   value={firstname}
                   onChange={(e) => setFirstname(e.target.value)}
-                  placeholder="Votre Prénom"
+                  placeholder="Your firstname"
                   className="mb-8 mt-2"
                   id="firstname"
                 />
-                <Label htmlFor="lastname">Votre Nom</Label>
+                <Label htmlFor="lastname">Name</Label>
                 <Input
                   required={true}
                   value={lastname}
                   onChange={(e) => setLastname(e.target.value)}
-                  placeholder="Votre Nom"
+                  placeholder="Name"
                   className="mb-8 mt-2"
                   id="lastname"
                 />
-                <Label htmlFor="telephone">Votre Numéro</Label>
+                <Label htmlFor="telephone">Your Number</Label>
                 <Input
                   required={true}
                   value={telephone}
@@ -103,12 +103,12 @@ export default function TalentDashboard() {
                   className="mb-8 mt-2"
                   id="telephone"
                 />
-                <Label htmlFor="country">Votre Pays</Label>
+                <Label htmlFor="country">Country</Label>
                 <Input
                   required={true}
                   value={country}
                   onChange={(e) => setCountry(e.target.value)}
-                  placeholder="Votre Pays"
+                  placeholder="Country"
                   className="mb-8 mt-2"
                   id="country"
                 />

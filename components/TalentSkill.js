@@ -43,21 +43,21 @@ export default function TalentSkill() {
           x-chunk="dashboard-04-chunk-0"
         >
           <Link href="/talent-setting">General</Link>
-          <Link href="/talent-next-profil">Mes choix</Link>
-          <Link href="/talent-avatar">Avatar</Link>
-          <Link href="/talent-experience">Expériences</Link>
-          <Link href="/talent-skill" className="font-semibold text-primary">
-            Compétences
+          <Link href="/talent-next-profil">My choices</Link>
+          <Link href="/talent-avatar" className="font-semibold text-primary">
+            Avatar
           </Link>
-          <Link href="/talent-social-link">Réseaux sociaux</Link>
-          <Link href="/talent-candidatures">Mes candidatures</Link>
+          <Link href="/talent-experience">Experiences</Link>
+          <Link href="/talent-skill">Skills</Link>
+          <Link href="/talent-social-link">Social Media</Link>
+          <Link href="/talent-candidatures">My Applications</Link>
           <Link href="/talent-job">Jobs</Link>
         </nav>
         <div className="grid gap-6">
           <Card>
             <CardHeader>
               <CardTitle>Profil</CardTitle>
-              <CardDescription>Modifier vos informations</CardDescription>
+              <CardDescription>Update your informations</CardDescription>
             </CardHeader>
             <CardContent>
               <ul>
@@ -71,7 +71,7 @@ export default function TalentSkill() {
                       variant="destructive"
                       onClick={() => deleteSkill(allSkill._id)}
                     >
-                      Supprimer
+                      Delete
                     </Button>
                   </li>
                 ))}
@@ -81,7 +81,7 @@ export default function TalentSkill() {
                   type="text"
                   value={skill}
                   onChange={(e) => setSkill(e.target.value)}
-                  placeholder="Ajoutez une compétence à la fois : Javascript, React, Angular, Node, etc..."
+                  placeholder="Add one skill at a time: JavaScript, React, Angular, Node, etc..."
                   className="mb-4"
                 />
                 {!isLoading && <Button type="submit">Save</Button>}

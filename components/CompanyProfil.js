@@ -34,12 +34,12 @@ export default function CompanyProfil() {
           <div className="max-w-md mx-auto md:max-w-sm md:w-96">
             <div className="flex flex-col text-center">
               <h1 className="text-3xl font-semibold tracking-tighter text-gray-900">
-                Compléter votre profil
+                Complete your profil
                 <span className="text-gray-600"> en tant que compagnie</span>
               </h1>
               <p className="mt-4 mb-4 text-base font-medium text-gray-500">
-                Rejoignez-nous dès aujourd&#39;hui et découvrez comment notre
-                plateforme peut transformer votre processus de recrutement.
+                Join us today and discover how our platform can transform your
+                recruitment process.
               </p>
             </div>
 
@@ -50,7 +50,7 @@ export default function CompanyProfil() {
                     htmlFor="company"
                     className="block mb-3 text-sm font-medium text-black"
                   >
-                    Nom de l&#39;entreprise
+                    Company Name
                   </label>
                   <input
                     onChange={(e) => setCompany(e.target.value)}
@@ -67,7 +67,7 @@ export default function CompanyProfil() {
                     htmlFor="domain"
                     className="block mb-3 text-sm font-medium text-black"
                   >
-                    Domaine
+                    Domain
                   </label>
                   <input
                     onChange={(e) => setDomain(e.target.value)}
@@ -84,7 +84,7 @@ export default function CompanyProfil() {
                     htmlFor="size"
                     className="block mb-3 text-sm font-medium text-black"
                   >
-                    Taille
+                    Size
                   </label>
                   <input
                     onChange={(e) => setSize(e.target.value)}
@@ -101,7 +101,7 @@ export default function CompanyProfil() {
                     htmlFor="position"
                     className="block mb-3 text-sm font-medium text-black"
                   >
-                    Addresse
+                    Address
                   </label>
                   <input
                     onChange={(e) => setPosition(e.target.value)}
@@ -115,10 +115,10 @@ export default function CompanyProfil() {
                 </div>
                 <div className="col-span-full">
                   <label
-                    htmlFor="telephone"
+                    htmlFor="phone"
                     className="block mb-3 text-sm font-medium text-black"
                   >
-                    Telephone
+                    phone
                   </label>
                   <input
                     onChange={(e) => setTelephone(e.target.value)}
@@ -135,7 +135,7 @@ export default function CompanyProfil() {
                     htmlFor="country"
                     className="block mb-3 text-sm font-medium text-black"
                   >
-                    Pays
+                    Country
                   </label>
                   <input
                     onChange={(e) => setCountry(e.target.value)}
@@ -154,7 +154,7 @@ export default function CompanyProfil() {
                       disabled={isSubmitting}
                       className="inline-flex items-center justify-center w-full h-12 gap-3 px-5 py-3 font-medium text-white duration-200 bg-gray-900 rounded-xl hover:bg-gray-700 focus:ring-2 focus:ring-offset-2 focus:ring-black"
                     >
-                      Enregistrer
+                      Save
                     </button>
                   )}
                   {isLoading && (
@@ -162,7 +162,7 @@ export default function CompanyProfil() {
                       disabled={isLoading}
                       className="inline-flex items-center justify-center w-full h-12 gap-3 px-5 py-3 font-medium text-white duration-200 bg-gray-500 rounded-xl hover:bg-gray-700 focus:ring-2 focus:ring-offset-2 focus:ring-black"
                     >
-                      Veuillez patienter
+                      Waiting...
                     </button>
                   )}
                 </div>

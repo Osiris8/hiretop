@@ -36,9 +36,9 @@ function ProfileCard() {
 
   const renderAvailability = (value, label) => {
     if (value === "false" || value === "") {
-      return <p className="mt-2 text-gray-500">{label} : Non</p>;
+      return <p className="mt-2 text-gray-500">{label} : No</p>;
     } else if (value === "true") {
-      return <p className="mt-2 text-gray-500">{label} : Oui</p>;
+      return <p className="mt-2 text-gray-500">{label} : Yes</p>;
     }
     return (
       <p className="mt-2 text-gray-500">
@@ -100,7 +100,7 @@ function ProfileCard() {
           </div>
         </div>
       </div>
-      <h2 className="text-2xl font-semibold mt-4">Autres</h2>
+      <h2 className="text-2xl font-semibold mt-4">Others</h2>
       <div className="max-w-sm mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl mt-5">
         <div className="p-8">
           {renderAvailability(level, "Level")}

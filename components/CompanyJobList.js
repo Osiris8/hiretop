@@ -49,7 +49,7 @@ const JobList = () => {
             htmlFor="title"
             className="block mb-2 text-sm font-medium text-gray-700"
           >
-            Titre du job
+            Job Title
           </label>
           <input
             id="title"
@@ -65,7 +65,7 @@ const JobList = () => {
             htmlFor="country"
             className="block mb-2 text-sm font-medium text-gray-700"
           >
-            Pays
+            Country
           </label>
           <input
             id="country"
@@ -81,7 +81,7 @@ const JobList = () => {
             htmlFor="contract"
             className="block mb-2 text-sm font-medium text-gray-700"
           >
-            Type de contrat
+            Contrat Type
           </label>
           <select
             id="contract"
@@ -89,11 +89,11 @@ const JobList = () => {
             onChange={(e) => setContract(e.target.value)}
             className="block w-full px-4 py-2 border rounded-md focus:border-indigo-500 focus:ring-indigo-500"
           >
-            <option value="">Tous</option>
-            <option value="Onsite">Sur place</option>
+            <option value="">All</option>
+            <option value="Onsite">Onsite</option>
             <option value="Freelance">Freelance</option>
-            <option value="Remote">Télétravail</option>
-            <option value="Hybrid">Hybride</option>
+            <option value="Remote">Remote</option>
+            <option value="Hybrid">Hybrid</option>
           </select>
         </div>
       </div>

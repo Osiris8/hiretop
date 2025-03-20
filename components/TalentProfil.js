@@ -30,11 +30,11 @@ export default function TalentProfil() {
           <div className="max-w-md mx-auto md:max-w-sm md:w-96">
             <div className="flex flex-col text-center">
               <h1 className="text-3xl font-semibold tracking-tighter text-gray-900">
-                Compléter votre profil,
-                <span className="text-gray-600"> en tant que Talent</span>
+                Complete your profil,
+                <span className="text-gray-600"> as Talent</span>
               </h1>
               <p className="mt-4 text-base font-medium text-gray-500">
-                Démarquez-vous et boostez votre carrière avec notre plateforme.
+                Stand out and boost your career with our platform.
               </p>
             </div>
             <form onSubmit={(e) => sendTalentProfil(e, router)}>
@@ -44,7 +44,7 @@ export default function TalentProfil() {
                     htmlFor="firstname"
                     className="block mb-3 text-sm font-medium text-black"
                   >
-                    Prénom
+                    Fistname
                   </label>
                   <input
                     onChange={(e) => setFirstname(e.target.value)}
@@ -61,7 +61,7 @@ export default function TalentProfil() {
                     htmlFor="lastname"
                     className="block mb-3 text-sm font-medium text-black"
                   >
-                    Nom
+                    Name
                   </label>
                   <input
                     onChange={(e) => setLastname(e.target.value)}
@@ -75,10 +75,10 @@ export default function TalentProfil() {
                 </div>
                 <div className="col-span-full">
                   <label
-                    htmlFor="telephone"
+                    htmlFor="phone"
                     className="block mb-3 text-sm font-medium text-black"
                   >
-                    Telephone
+                    phone
                   </label>
                   <input
                     onChange={(e) => setTelephone(e.target.value)}
@@ -95,7 +95,7 @@ export default function TalentProfil() {
                     htmlFor="country"
                     className="block mb-3 text-sm font-medium text-black"
                   >
-                    Pays
+                    Country
                   </label>
                   <input
                     onChange={(e) => setCountry(e.target.value)}
@@ -114,7 +114,7 @@ export default function TalentProfil() {
                       disabled={isSubmitting}
                       className="inline-flex items-center justify-center w-full h-12 gap-3 px-5 py-3 font-medium text-white duration-200 bg-gray-900 rounded-xl hover:bg-gray-700 focus:ring-2 focus:ring-offset-2 focus:ring-black"
                     >
-                      Enregistrer
+                      Save
                     </button>
                   )}
                   {isLoading && (

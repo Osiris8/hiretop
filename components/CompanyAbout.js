@@ -53,25 +53,23 @@ export default function CompanyAbout() {
         >
           <Link href="/company-setting">General</Link>
           <Link href="/company-about" className="font-semibold text-primary">
-            Présentation
+            Introduction
           </Link>
           <Link href="/company-avatar">Avatar</Link>
-          <Link href="/company-job">Posté un job</Link>
-          <Link href="/company/jobs">Propositions reçues</Link>
-          <Link href="/company-all-job">Explorer des Jobs</Link>
-          <Link href="/company-social-link">Réseaux sociaux</Link>
+          <Link href="/company-job">Post a job</Link>
+          <Link href="/company/jobs">Proposals received</Link>
+          <Link href="/company-all-job">Explore jobs</Link>
+          <Link href="/company-social-link">Social media</Link>
         </nav>
         <div className="grid gap-6">
           <Card x-chunk="dashboard-04-chunk-1">
             <CardHeader>
-              <CardTitle>Compagnie Profil</CardTitle>
-              <CardDescription>Modifier vos informations</CardDescription>
+              <CardTitle>Company profile</CardTitle>
+              <CardDescription>Edit your information</CardDescription>
             </CardHeader>
             <CardContent>
               <form onSubmit={companyAboutSubmit}>
-                <Label htmlFor="companyAbout">
-                  Présentation de votre entreprise
-                </Label>
+                <Label htmlFor="companyAbout">Your company profile</Label>
                 <Textarea
                   id="companyAbout"
                   name="companyAbout"

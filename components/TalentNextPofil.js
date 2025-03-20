@@ -58,38 +58,33 @@ export default function TalentNextProfil() {
           className="grid gap-4 text-sm text-muted-foreground"
           x-chunk="dashboard-04-chunk-0"
         >
-          <Link href="/talent-setting" className="">
-            General
+          <Link href="/talent-setting">General</Link>
+          <Link href="/talent-next-profil">My choices</Link>
+          <Link href="/talent-avatar" className="font-semibold text-primary">
+            Avatar
           </Link>
-          <Link
-            href="/talent-next-profil"
-            className="font-semibold text-primary"
-          >
-            Mes choix
-          </Link>
-          <Link href="/talent-avatar">Avatar</Link>
-          <Link href="/talent-experience">Expériences</Link>
-          <Link href="/talent-skill">Compétences</Link>
-          <Link href="/talent-social-link">Réseaux sociaux</Link>
-          <Link href="/talent-candidatures">Mes candidatures</Link>
+          <Link href="/talent-experience">Experiences</Link>
+          <Link href="/talent-skill">Skills</Link>
+          <Link href="/talent-social-link">Social Media</Link>
+          <Link href="/talent-candidatures">My Applications</Link>
           <Link href="/talent-job">Jobs</Link>
         </nav>
         <div className="grid gap-6">
           <Card>
             <CardHeader>
               <CardTitle>Profil</CardTitle>
-              <CardDescription>Modifier vos informations</CardDescription>
+              <CardDescription>Update your informations</CardDescription>
             </CardHeader>
             <CardContent>
               <form onSubmit={updateTalentNextProfil}>
-                <p className="text-md mb-4 mt-4 font-semibold">Votre Niveau</p>
+                <p className="text-md mb-4 mt-4 font-semibold">Ypur Level</p>
                 <Select value={level} onValueChange={setLevel}>
                   <SelectTrigger className="w-[180px]">
                     <SelectValue placeholder="Niveau" />
                   </SelectTrigger>
                   <SelectContent>
                     <SelectItem value="Junior">Junior</SelectItem>
-                    <SelectItem value="Intermédiaire">Intermédiaire</SelectItem>
+                    <SelectItem value="Intermédiaire">Intermediaire</SelectItem>
                     <SelectItem value="Expert">Expert</SelectItem>
                   </SelectContent>
                 </Select>
@@ -100,8 +95,8 @@ export default function TalentNextProfil() {
                     <SelectValue placeholder="Remote" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="true">OUI</SelectItem>
-                    <SelectItem value="false">NON</SelectItem>
+                    <SelectItem value="true">YES</SelectItem>
+                    <SelectItem value="false">NO</SelectItem>
                   </SelectContent>
                 </Select>
                 <p className="text-md mb-4 mt-4 font-semibold">Freelance</p>
@@ -110,39 +105,39 @@ export default function TalentNextProfil() {
                     <SelectValue placeholder="Freelance" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="true">OUI</SelectItem>
-                    <SelectItem value="false">NON</SelectItem>
+                    <SelectItem value="true">YES</SelectItem>
+                    <SelectItem value="false">NO</SelectItem>
                   </SelectContent>
                 </Select>
-                <p className="text-md mb-4 mt-4 font-semibold">Sur site</p>
+                <p className="text-md mb-4 mt-4 font-semibold">Onsite</p>
                 <Select value={onsite} onValueChange={setOnsite}>
                   <SelectTrigger className="w-[180px]">
                     <SelectValue placeholder="Sur site" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="true">OUI</SelectItem>
-                    <SelectItem value="false">NON</SelectItem>
+                    <SelectItem value="true">YES</SelectItem>
+                    <SelectItem value="false">NO</SelectItem>
                   </SelectContent>
                 </Select>
-                <p className="text-md mb-4 mt-4 font-semibold">Disponibilité</p>
+                <p className="text-md mb-4 mt-4 font-semibold">Availability</p>
                 <Select value={available} onValueChange={setAvailable}>
                   <SelectTrigger className="w-[180px]">
                     <SelectValue placeholder="Disponibilité" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="true">OUI</SelectItem>
-                    <SelectItem value="false">NON</SelectItem>
+                    <SelectItem value="true">YES</SelectItem>
+                    <SelectItem value="false">NO</SelectItem>
                   </SelectContent>
                 </Select>
 
-                <p className="text-md mb-4 mt-4 font-semibold">Ville</p>
+                <p className="text-md mb-4 mt-4 font-semibold">City</p>
                 <Input
                   value={city}
                   onChange={(e) => setCity(e.target.value)}
                   className="mb-4"
-                  placeholder="Ville"
+                  placeholder="City"
                 />
-                <p className="text-md mb-4 mt-4 font-semibold">Pays</p>
+                <p className="text-md mb-4 mt-4 font-semibold">Country</p>
                 <Input
                   value={country}
                   onChange={(e) => setCountry(e.target.value)}
