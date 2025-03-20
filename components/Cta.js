@@ -12,23 +12,23 @@ export default function Cta() {
               Hiretop
             </span>
             <p class="mt-8 text-4xl font-semibold tracking-tighter text-black">
-              Démarrez et trouver votre prochain talent exceptionnel !
+              Get started and find your next exceptional talent!
             </p>
             <p class="w-1/2 mx-auto mt-4 text-base text-gray-500 text-balance">
-              Prêt à renforcer votre équipe avec des talents exceptionnels ?
+              Ready to strengthen your team with exceptional talents?
             </p>
             <div class="flex flex-col items-center justify-center gap-2 mx-auto mt-8 md:flex-row">
               <button
                 class="inline-flex items-center justify-center w-full h-12 gap-3 px-5 py-3 font-medium text-white duration-200 bg-gray-900 md:w-auto rounded-xl hover:bg-gray-700 focus:ring-2 focus:ring-offset-2 focus:ring-black"
                 aria-label="Primary action"
               >
-                <RegisterLink>Je suis un talent</RegisterLink>
+                <RegisterLink>I am a talent</RegisterLink>
               </button>
               <button
                 class="inline-flex items-center justify-center w-full h-12 gap-3 px-5 py-3 font-medium duration-200 bg-gray-100 md:w-auto rounded-xl hover:bg-gray-200 focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                 aria-label="Secondary action"
               >
-                <RegisterLink>Je cherche des Talents</RegisterLink>
+                <RegisterLink>I am looking for talents</RegisterLink>
               </button>
             </div>
           </div>
