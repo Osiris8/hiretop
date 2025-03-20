@@ -25,7 +25,7 @@ export default function Nav() {
                     className="py-2 text-sm font-medium text-black hover:text-black/50"
                     href=""
                   >
-                    Acceuil
+                    Home
                   </a>
                 </li>
 
@@ -34,7 +34,7 @@ export default function Nav() {
                     className="py-2 text-sm font-medium text-black hover:text-black/50"
                     href="#companies"
                   >
-                    Entreprise
+                    Company
                   </a>
                 </li>
 

@@ -12,22 +12,21 @@ export default function Feature1() {
               Talents
             </span>
             <p class="mt-8 text-4xl font-semibold tracking-tight text-gray-900 text-balance">
-              Votre prochaine grande opportunité vous attend ici
+              Your next big opportunity awaits here.
             </p>
             <p class="mt-4 text-base font-medium text-gray-500">
-              Rejoignez une communauté de talents exceptionnels, où
-              l&apos;innovation rencontre l&apos;excellence, où les idées
-              prennent vie et où les opportunités de croissance professionnelle
-              sont infinies. Ensemble, nous construisons un réseau dynamique où
-              chaque membre apporte sa propre expertise et contribue à façonner
-              l&apos;avenir du monde professionnel.
+              Join a community of exceptional talents, where innovation meets
+              excellence, ideas come to life, and career growth opportunities
+              are endless. Together, we are building a dynamic network where
+              each member brings their expertise and helps shape the future of
+              the professional world.
             </p>
             <div class="flex flex-col items-center gap-2 mx-auto mt-8 md:flex-row">
               <button
                 class="inline-flex items-center justify-center w-full h-12 gap-3 px-5 py-3 font-medium text-white duration-200 bg-gray-900 md:w-auto rounded-xl hover:bg-gray-700 focus:ring-2 focus:ring-offset-2 focus:ring-black"
                 aria-label="Primary action"
               >
-                <RegisterLink> Je me lance</RegisterLink>
+                <RegisterLink> I&#39;m getting started.</RegisterLink>
               </button>
             </div>
           </div>
