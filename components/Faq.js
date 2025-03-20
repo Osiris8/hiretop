@@ -50,25 +50,25 @@ const FAQSection = () => {
           <div className="text-center lg:text-left">
             <div>
               <p className="text-4xl font-semibold tracking-tighter text-gray-900">
-                Questions et réponses fréquentes
+                Frequently Asked Questions (FAQ)
               </p>
               <p className="mt-4 text-base font-medium text-gray-500 text-pretty">
-                Réponses aux questions fréquemment posées sur notre plateforme
+                Answers to frequently asked questions about our platform.
               </p>
             </div>
           </div>
           <div className="w-full lg:col-span-2">
             <AccordionItem
-              question="Comment fonctionne la plateforme ?"
-              answer="Notre plateforme permet aux entreprises de publier des offres d'emploi et aux talents de postuler directement à ces offres. Une fois inscrit, vous pouvez rechercher des emplois, créer un profil professionnel attractif et postuler en quelques clics."
+              question="How does the platform work?"
+              answer="Our platform allows companies to post job offers and talents to apply directly to these offers. Once registered, you can search for jobs, create an attractive professional profile, and apply with just a few clicks."
             />
             <AccordionItem
-              question="Quels types d'entreprises utilisent votre plateforme ?"
-              answer="Notre plateforme est utilisée par une large gamme d'entreprises, des startups aux grandes entreprises, dans divers secteurs d'activité. Nous nous efforçons de connecter les talents avec des opportunités dans des entreprises de toutes tailles et de tous secteurs."
+              question="What types of companies use your platform?"
+              answer="Our platform is used by a wide range of companies, from startups to large enterprises, across various industries. We strive to connect talents with opportunities in companies of all sizes and sectors."
             />
             <AccordionItem
-              question="Comment puis-je augmenter mes chances d'être repéré ?"
-              answer="Pour augmenter vos chances d'être remarqué par les recruteurs, assurez-vous de compléter votre profil professionnel de manière exhaustive et de mettre en valeur vos compétences et réalisations pertinentes. De plus, restez actif sur la plateforme en explorant les offres d'emploi et en postulant régulièrement."
+              question="How can I increase my chances of being noticed?"
+              answer="To increase your chances of being noticed by recruiters, make sure to complete your professional profile thoroughly and highlight your relevant skills and achievements. Additionally, stay active on the platform by exploring job offers and applying regularly."
             />
 
             {/* Repeat AccordionItem component for each item */}
