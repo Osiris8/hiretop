@@ -76,30 +76,30 @@ export default function TalentDashboard() {
             </CardHeader>
             <CardContent>
               <form onSubmit={talentDashboard}>
-                <Label htmlFor="firstname">firstname</Label>
+                <Label htmlFor="Firstname">Firstname</Label>
                 <Input
                   required={true}
                   value={firstname}
                   onChange={(e) => setFirstname(e.target.value)}
-                  placeholder="Your firstname"
+                  placeholder="Firstname"
                   className="mb-8 mt-2"
                   id="firstname"
                 />
-                <Label htmlFor="lastname">Name</Label>
+                <Label htmlFor="Lastname">Lastname</Label>
                 <Input
                   required={true}
                   value={lastname}
                   onChange={(e) => setLastname(e.target.value)}
-                  placeholder="Name"
+                  placeholder="Lastname"
                   className="mb-8 mt-2"
                   id="lastname"
                 />
-                <Label htmlFor="telephone">Your Number</Label>
+                <Label htmlFor="telephone">Number</Label>
                 <Input
                   required={true}
                   value={telephone}
                   onChange={(e) => setTelephone(e.target.value)}
-                  placeholder="Votre Numéro"
+                  placeholder="Number"
                   className="mb-8 mt-2"
                   id="telephone"
                 />
