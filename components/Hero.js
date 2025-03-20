@@ -11,11 +11,11 @@ function Hero() {
         <div class="px-8 py-24 mx-auto md:px-12 lg:px-32 max-w-7xl">
           <div class="text-center">
             <h1 class="text-4xl font-semibold tracking-tighter text-gray-900 lg:text-5xl text-balance">
-              Connectez des talents aux opportunités
+              Connect talents to opportunities
             </h1>
             <p class="w-1/2 mx-auto mt-4 text-base font-medium text-gray-500 text-balance">
-              Trouvez votre prochaine opportunité professionnelle.
-              Démarquez-vous et boostez votre carrière avec Hiretop.
+              Find your next career opportunity. Stand out and boost your career
+              with Hiretop.
             </p>
             <div class="flex flex-col items-center justify-center gap-2 mx-auto mt-8 md:flex-row">
               <button
