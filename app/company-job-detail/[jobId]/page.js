@@ -56,22 +56,22 @@ const JobDetail = () => {
           {job.description}
         </p>
         <p className="text-lg mb-4">
-          <strong>Profil recherché :</strong> {job.profil}
+          <strong>Profil :</strong> {job.profil}
         </p>
         <p className="text-lg mb-4">
-          <strong>Processus d&#39;entretien :</strong> {job.interview}
+          <strong>Interview process :</strong> {job.interview}
         </p>
         <p className="text-lg mb-4">
-          <strong>Type de contrat :</strong> {job.contract}
+          <strong>Contract type :</strong> {job.contract}
         </p>
         <p className="text-lg mb-4">
-          <strong>Pays :</strong> {job.country}
+          <strong>Country :</strong> {job.country}
         </p>
 
         <hr className="my-4 border-t border-slate-900" />
 
         <p className="text-lg mb-4">
-          <strong>Information sur l&#39;entreprise :</strong> {job.company}
+          <strong>Company information :</strong> {job.company}
         </p>
       </div>
     </div>
