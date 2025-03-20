@@ -122,30 +122,32 @@ const JobDetail = () => {
           {job.description}
         </p>
         <p className="text-lg mb-4">
-          <strong>Profil recherché :</strong> {job.profil}
+          <strong>Profil :</strong> {job.profil}
         </p>
         <p className="text-lg mb-4">
-          <strong>Processus d&#39;entretien :</strong> {job.interview}
+          <strong>Interview Process :</strong> {job.interview}
         </p>
         <p className="text-lg mb-4">
-          <strong>Type de contrat :</strong> {job.contract}
+          <strong>Contrat type :</strong> {job.contract}
         </p>
         <p className="text-lg mb-4">
-          <strong>Pays :</strong> {job.country}
+          <strong>Country :</strong> {job.country}
         </p>
 
         <hr className="my-4 border-t border-slate-900" />
 
         <p className="text-lg mb-4">
-          <strong>Information sur l&#39;entreprise :</strong> {job.company}
+          <strong>Company information :</strong> {job.company}
         </p>
 
         {candidatureExists ? (
-          <p className="text-red-500">Vous avez déjà postulé pour ce poste.</p>
+          <p className="text-red-500">
+            You have already applied for this position.
+          </p>
         ) : (
           <div>
             <p className="text-lg mb-4">
-              <strong>Envoyer votre CV</strong>
+              <strong>Submit your resume</strong>
             </p>
             <form onSubmit={handleSubmit}>
               <Input

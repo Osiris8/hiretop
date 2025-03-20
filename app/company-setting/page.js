@@ -16,8 +16,8 @@ export default function Dashboard() {
     </div>
   ) : (
     <div>
-      Veuillez patienter... Vous serez redirigé. Si la redirection ne marche
-      pas, cliquez sur ce lien :
+      Please wait... You will be redirected. If the redirection doesn&#39;t
+      work, click on this link:
       <LoginLink>
         <span className="underline"> Login</span>
       </LoginLink>

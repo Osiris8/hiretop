@@ -68,26 +68,26 @@ const CandidatureList = () => {
             x-chunk="dashboard-04-chunk-0"
           >
             <Link href="/talent-setting">General</Link>
-            <Link href="/talent-next-profil">Mes choix</Link>
+            <Link href="/talent-next-profil">My choices</Link>
             <Link href="/talent-avatar">Avatar</Link>
-            <Link href="/talent-experience">Expériences</Link>
-            <Link href="/talent-skill">Compétences</Link>
-            <Link href="/talent-social-link">Réseaux sociaux</Link>
+            <Link href="/talent-experience">Experiences</Link>
+            <Link href="/talent-skill">Skills</Link>
+            <Link href="/talent-social-link">Socials Links</Link>
             <Link href="/talent-candidatures" className="font-semibold">
-              Mes candidatures
+              My Applications
             </Link>
             <Link href="/talent-job">Jobs</Link>
           </nav>
           <div className="grid gap-6">
             <Card>
               <CardHeader>
-                <CardTitle>Mes candidatures</CardTitle>
-                <CardDescription>Trouvez vos candidatures ici</CardDescription>
+                <CardTitle>My Applications</CardTitle>
+                <CardDescription>Find your applications here</CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="p-6 max-w-4xl mx-auto">
                   {candidatures.length === 0 ? (
-                    <p>Aucune candidature trouvée</p>
+                    <p>No applications found</p>
                   ) : (
                     <div>
                       {candidatures.map((candidature) => (
@@ -107,8 +107,8 @@ const CandidatureList = () => {
     </div>
   ) : (
     <div>
-      Veuillez patienter... Vous serez redirigé. Si la redirection ne marche
-      pas, cliquez sur ce lien :
+      Please wait... You will be redirected. If the redirection doesn&#39;t
+      work, click on this link:
       <LoginLink>
         <span className="underline"> Login</span>
       </LoginLink>
