@@ -60,7 +60,7 @@ const CandidatureList = () => {
     <>
       <CompanyNav />
       <div className="p-6 max-w-4xl mx-auto">
-        <h1 className="text-3xl font-bold mb-4">Candidatures pour le job</h1>
+        <h1 className="text-3xl font-bold mb-4">Applications for the job</h1>
         {candidatures.map((candidature) => (
           <div
             key={candidature._id}
@@ -70,7 +70,7 @@ const CandidatureList = () => {
               <strong>Status:</strong> {candidature.status}
             </p>
             <p>
-              <strong>Date de candidature:</strong>{" "}
+              <strong>Application date:</strong>{" "}
               {new Date(candidature.createdAt).toLocaleDateString()}
             </p>
             <a
@@ -79,7 +79,7 @@ const CandidatureList = () => {
               rel="noopener noreferrer"
               className="text-blue-500"
             >
-              Voir le CV
+              View the resume
             </a>
             {candidature.offerUrl && (
               <div>
@@ -92,7 +92,7 @@ const CandidatureList = () => {
                   rel="noopener noreferrer"
                   className="text-blue-500"
                 >
-                  Voir l&apos;offre
+                  View the offer
                 </a>
               </div>
             )}
@@ -186,14 +186,12 @@ const CandidatureActions = ({ candidatureId }) => {
           className="mt-6 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
         >
           <SelectTrigger className="">
-            <SelectValue placeholder="Mettre à jour le statut" />
+            <SelectValue placeholder="Update Status" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="En cours de traitement">
-              En cours de traitement
-            </SelectItem>
-            <SelectItem value="Rejetée">Rejetée</SelectItem>
-            <SelectItem value="Offre envoyée">Offre envoyée</SelectItem>
+            <SelectItem value="In progress">In progress</SelectItem>
+            <SelectItem value="Rejected">Rejected</SelectItem>
+            <SelectItem value="Offer sent">Offer sent</SelectItem>
           </SelectContent>
         </Select>
         <Button
@@ -201,7 +199,7 @@ const CandidatureActions = ({ candidatureId }) => {
           className="mt-2 bg-slate-900 text-white px-4 py-2 rounded"
           disabled={isSubmittingStatus}
         >
-          {isSubmittingStatus ? "Mise à jour..." : "Mettre à jour"}
+          {isSubmittingStatus ? "Updating..." : "Update"}
         </Button>
       </div>
 
@@ -211,7 +209,7 @@ const CandidatureActions = ({ candidatureId }) => {
             htmlFor="offer"
             className="block text-sm font-medium text-gray-700"
           >
-            Envoyer une offre
+            Send Offer
           </Label>
           <Input
             id="offer"
@@ -226,7 +224,7 @@ const CandidatureActions = ({ candidatureId }) => {
             className="mt-2 bg-slate-900 text-white px-4 py-2 rounded"
             disabled={isSubmittingOffer}
           >
-            {isSubmittingOffer ? "Envoi en cours..." : "Envoyer"}
+            {isSubmittingOffer ? "Sending in progress..." : "Send"}
           </Button>
         </form>
       </div>
