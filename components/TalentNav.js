@@ -112,14 +112,14 @@ export default function TalentNav() {
             </DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem>
-              <Link href={"/talent-setting"}>Paramètres</Link>
+              <Link href={"/talent-setting"}>Settings</Link>
             </DropdownMenuItem>
             <DropdownMenuItem>
-              <Link href={"/talent-dashboard"}>Profile</Link>
+              <Link href={"/talent-dashboard"}>Profil</Link>
             </DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem>
-              <LogoutLink>Se deconnecter</LogoutLink>
+              <LogoutLink>Logout</LogoutLink>
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
