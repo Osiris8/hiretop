@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
-import HeroImage from "../public/images/hero1.png";
+import HeroImage2 from "../public/images/hero2.png";
 import { RegisterLink } from "@kinde-oss/kinde-auth-nextjs/components";
 
 function Hero() {
@@ -33,7 +33,7 @@ function Hero() {
             </div>
             <div class="relative h-full p-2 mt-24 overflow-hidden border rounded-3xl">
               <Image
-                src={HeroImage}
+                src={HeroImage2}
                 class="object-cover h-full border shadow-2xl rounded-2xl"
                 alt="hero image"
               />
