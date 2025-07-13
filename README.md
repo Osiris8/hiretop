@@ -1,4 +1,4 @@
-# ⚽️ HireTop – A Talent-Company Connection Platform
+# 💼 HireTop – A Talent-Company Connection Platform
 
 **HireTop** is an innovative platform that connects talents with companies, enabling talents to find job opportunities and companies to recruit top talent. Built with modern JavaScript tools, HireTop offers a seamless, secure, and user-friendly experience for managing job applications and recruitment processes.
 
